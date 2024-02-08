@@ -1793,10 +1793,6 @@ input::-webkit-inner-spin-button {
   font-weight: 400;
 }
 /* ============ DISCONT ============ */
-.discontWrapper,
-.discontText {
-  position: relative;
-}
 .discontText {
   cursor: pointer;
 }
@@ -1806,7 +1802,9 @@ input::-webkit-inner-spin-button {
   opacity: 1;
   visibility: visible;
 }
-
+.item__sum-discountless {
+  position: relative;
+}
 .discontInform {
   opacity: 0;
   visibility: hidden;
@@ -1819,7 +1817,7 @@ input::-webkit-inner-spin-button {
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.3),
     0px 2px 10px 0px rgba(0, 0, 0, 0.15);
   transition: opacity 0.3s, visibility 0.3s;
-  top: 44%;
+  top: 131%;
   right: -4%;
 }
 .discontInform_box {
@@ -1967,7 +1965,6 @@ input::-webkit-inner-spin-button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: inline-block;
   width: 10px;
   height: 10px;
   opacity: 0;
@@ -1975,6 +1972,7 @@ input::-webkit-inner-spin-button {
   border: 5px solid var(--system-magenta);
   transition: all 0.2s;
 }
+
 .cardModule_boxCard_card_input:checked + .cardModule_boxCard_card_span::before {
   opacity: 1;
 }
@@ -2066,10 +2064,12 @@ input::-webkit-inner-spin-button {
   border: 5px solid var(--system-magenta);
   transition: all 0.2s;
 }
+
 .deliveryModule_boxAddress_input:checked
   + .deliveryModule_boxAddress_span::before {
   opacity: 1;
 }
+
 .deliveryModule_boxAddress_p {
   display: flex;
   flex-direction: column;
