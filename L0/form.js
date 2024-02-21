@@ -4,7 +4,7 @@ const userFormInputName = document.querySelector("#firstName");
 
 const validateName = (event) => {
   const inputedName = event.target.value;
-  const nameRegExp = /^[a-zA-Z\s]*$/;
+  const nameRegExp = /[A-zА-Яа-я\-]/;
   const isValidName = nameRegExp.test(inputedName);
 
   if (inputedName.length !== 0 && !isValidName) {
@@ -23,7 +23,7 @@ const surnameFormInput = document.querySelector("#surname");
 
 const validateSurname = (event) => {
   const inputedSurname = event.target.value;
-  const surnameRegExp = /^[a-zA-Z\s]*$/;
+  const surnameRegExp = /[A-zА-Яа-я\-]/;
   const isValidSurName = surnameRegExp.test(inputedSurname);
   if (inputedSurname.length !== 0 && !isValidSurName) {
     surnameFormInputError.classList.add("error");
@@ -92,16 +92,13 @@ for (let elem of phone_inputs) {
 
 const validatePhone = (event) => {
   const inputedPhone = event.target.value;
-  console.log(inputedPhone.length);
   if (inputedPhone.length === 0) {
     return;
   } else if (inputedPhone.length !== 16) {
     phoneFormInputError.classList.add("error");
     phoneFormInputError.classList.remove("errorPhone");
     phoneFormInput.classList.add("errorInput");
-    console.log("error");
   } else {
-    console.log("ok");
     phoneFormInputError.classList.remove("error");
     phoneFormInputError.classList.add("errorPhone");
     phoneFormInput.classList.remove("errorInput");
@@ -115,9 +112,10 @@ const InnFormInput = document.querySelector("#inn");
 
 const validateInn = (event) => {
   const inputedInn = event.target.value;
+
   if (inputedInn.length === 0) {
     return;
-  } else if (inputedInn.length !== 12) {
+  } else if (inputedInn.length !== 14) {
     InnFormInputError.classList.add("error");
     InnFormInputError.classList.remove("errorInn");
     InnFormInput.classList.add("errorInput");
@@ -128,7 +126,11 @@ const validateInn = (event) => {
   }
 };
 InnFormInput.addEventListener("focusout", validateInn);
-
+InnFormInput.addEventListener("keypress", function (evt) {
+  if ((evt.which != 8 && evt.which != 0 && evt.which < 48) || evt.which > 57) {
+    evt.preventDefault();
+  }
+});
 // =================================================================== order button
 
 const orderButton = document.querySelector(".result_boxButton_button");
@@ -149,30 +151,19 @@ function checkForm(e) {
     inputedName.length === 0 ||
     inputedSurname.length === 0
   ) {
-    InnFormInput.classList.add("errorInput");
-    InnFormInputError.classList.add("error");
-    phoneFormInput.classList.add("errorInput");
-    phoneFormInputError.classList.add("error");
-    emailFormInput.classList.add("errorInput");
-    emailFormInputError.classList.add("error");
-    surnameFormInput.classList.add("errorInput");
-    surnameFormInputError.classList.add("error");
-    userFormInputName.classList.add("errorInput");
-    userFormInputNameError.classList.add("error");
+    InnFormInput.classList.toggle("errorInput");
+    InnFormInputError.classList.toggle("error");
+    phoneFormInput.classList.toggle("errorInput");
+    phoneFormInputError.classList.toggle("error");
+    emailFormInput.classList.toggle("errorInput");
+    emailFormInputError.classList.toggle("error");
+    surnameFormInput.classList.toggle("errorInput");
+    surnameFormInputError.classList.toggle("error");
+    userFormInputName.classList.toggle("errorInput");
+    userFormInputNameError.classList.toggle("error");
     formRecipent.scrollIntoView();
     return;
   }
-
-  InnFormInput.classList.remove("errorInput");
-  InnFormInputError.classList.remove("error");
-  phoneFormInput.classList.remove("errorInput");
-  phoneFormInputError.classList.remove("error");
-  emailFormInput.classList.remove("errorInput");
-  emailFormInputError.classList.remove("error");
-  surnameFormInput.classList.remove("errorInput");
-  surnameFormInputError.classList.remove("error");
-  userFormInputName.classList.remove("errorInput");
-  userFormInputNameError.classList.remove("error");
 
   document.querySelector("#inn").value = "";
   document.querySelector("#phone").value = "";

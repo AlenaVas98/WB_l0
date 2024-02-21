@@ -89,7 +89,6 @@ function setDeliveryInform() {
 //  ============================================================================  delivery module self
 function setDeliveryModuleInform() {
   selfDelivery.innerHTML = "";
-  console.log(dataDelivery);
   for (let i = 0; i < dataDelivery.length; i++) {
     let div = document.createElement("div");
     div.classList.add("deliveryModule_boxAddress");
@@ -323,23 +322,15 @@ function DeleteDelivery() {
   trash.forEach((btn) => {
     btn.addEventListener("click", () => {
       let filerData = dataDelivery.filter(({ id }) => {
-        console.log(btn.id);
-        console.log(id);
-
         return id !== btn.id;
       });
-      // console.log(filerData);
       dataDelivery = filerData;
       setDeliveryModuleInform();
     });
     btn.addEventListener("click", () => {
       let filerDataCourier = dataDeliveryCourier.filter(({ id }) => {
-        console.log(btn.id);
-        console.log(id);
-
         return id !== btn.id;
       });
-      // console.log(filerData);
       dataDeliveryCourier = filerDataCourier;
       setDeliveryModuleInformCourier();
     });

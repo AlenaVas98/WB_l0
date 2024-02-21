@@ -26,13 +26,19 @@ hr {
 button {
   cursor: pointer;
 }
+
 /* -------------------         ICONS       ----------------*/
 
 .icon-heart:hover {
   stroke: var(--system-magenta);
+  cursor: pointer;
+}
+.activeHeart {
+  stroke: var(--system-magenta);
 }
 .icon-trash:hover {
   stroke: var(--system-orange);
+  cursor: pointer;
 }
 
 .wrapper {
@@ -724,6 +730,15 @@ input::-webkit-inner-spin-button {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 0;
+  width: 4em;
+  border: none;
+  /* display: inline-block; */
+  color: var(--text-black);
+  text-align: center;
+}
+[contenteditable="true"]:empty:before {
+  content: attr(placeholder);
+  color: gray;
 }
 .cart__mainBox_productBox_amount-discount span {
   font-size: 15px;
@@ -735,9 +750,14 @@ input::-webkit-inner-spin-button {
   margin-top: 5px;
   text-decoration: underline dashed var(--rulers-rulers-input) 1.5px;
   text-underline-offset: 3px;
+  cursor: pointer;
 }
-.cart__mainBox_productBox_icon_buttonBox_span {
+.cart__mainBox_productBox_icon_buttonBox_input {
   font-size: 12px;
+  border: none;
+  width: 22px;
+  background-color: white;
+  text-align: center;
 }
 /* ============ BOX ============ */
 .cart__downBox,
@@ -794,8 +814,7 @@ input::-webkit-inner-spin-button {
   padding: 9px;
   border-radius: 8px;
   display: flex;
-  justify-content: center;
-  gap: 25px;
+  gap: 20px;
 }
 .cart__mainBox_productBox_amount {
   display: flex;
@@ -839,7 +858,7 @@ input::-webkit-inner-spin-button {
     margin-top: 3px;
     margin-bottom: 10px;
   }
-  .discontText {
+  .cart__mainBox_productBox_amount-price {
     font-size: 12px;
   }
 
@@ -913,7 +932,7 @@ input::-webkit-inner-spin-button {
     left: 96px;
     gap: 12px;
   }
-  .discontText {
+  .cart__mainBox_productBox_amount-price {
     font-size: 10px;
   }
 
@@ -1793,12 +1812,9 @@ input::-webkit-inner-spin-button {
   font-weight: 400;
 }
 /* ============ DISCONT ============ */
-.discontText {
-  cursor: pointer;
-}
 
-.discontText:focus-visible ~ .discontInform,
-.discontText:hover ~ .discontInform {
+.cart__mainBox_productBox_amount-price:focus-visible ~ .discontInform,
+.cart__mainBox_productBox_amount-price:hover ~ .discontInform {
   opacity: 1;
   visibility: visible;
 }
@@ -2204,4 +2220,8 @@ input::-webkit-inner-spin-button {
     width: 100%;
     margin-top: 148px;
   }
+}
+
+.hide {
+  display: none;
 }

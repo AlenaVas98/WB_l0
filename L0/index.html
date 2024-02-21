@@ -67,7 +67,7 @@
         <div class="header__cart">
           <img src="./icons/cart.svg" alt="cart" />
           <p class="header__cart-text">Корзина</p>
-          <div class="header__cart_quantity header__cart_item-label">3</div>
+          <div class="header__cart_quantity header__cart_item-label hide"></div>
         </div>
       </div>
     </header>
@@ -78,7 +78,7 @@
         <div class="cart">
           <h2 class="cart-header">Корзина</h2>
           <div class="cart__downBox cartHidden">
-            <p class="cart__downBox_text">266 товаров · 2 100 569 сом</p>
+            <p class="cart__downBox_text">0 товаров · 0 сом</p>
             <button class="btn-close">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -121,17 +121,18 @@
           </div>
 
           <hr />
-
+          <!-- ========================================================= -->
           <div class="cart__mainBox">
             <!-- ===========    T-SHIRT    =============       -->
 
-            <div class="cart__mainBox_productBox">
+            <div class="cart__mainBox_productBox" id="product1">
               <div class="cart__mainBox_productBox_product">
                 <div class="cart__mainBox_productBox_product_imgCheckbox">
                   <label class="cart__mainBox_productBox_product_lable">
                     <input
                       type="checkbox"
-                      class="cart__mainBox_productBox_product_input"
+                      class="cart__mainBox_productBox_product_input checkbox"
+                      id="checkbox1"
                     />
                     <span
                       class="cart__mainBox_productBox_product_checkbox cart__mainBox_productBox_product_checkbox-mobile"
@@ -193,24 +194,30 @@
                   <div class="cart__mainBox_productBox_icon_buttonBox">
                     <button
                       class="cart__mainBox_productBox_icon_buttonBox_button"
+                      id="minus1"
                     >
                       -
                     </button>
-                    <span class="cart__mainBox_productBox_icon_buttonBox_span"
-                      >1</span
-                    >
+                    <input
+                      type="text"
+                      class="cart__mainBox_productBox_icon_buttonBox_input"
+                      id="tShirtCount"
+                      value="1"
+                      disabled
+                    />
                     <button
                       class="cart__mainBox_productBox_icon_buttonBox_button"
+                      id="plus1"
                     >
                       +
                     </button>
                   </div>
-                  <p class="cart__mainBox_productBox_icon_text">
+                  <p class="cart__mainBox_productBox_icon_text" id="quantity1">
                     Осталось 2 шт.
                   </p>
                 </div>
                 <div class="cart__mainBox_productBox_icon_iconBox">
-                  <a href="#">
+                  <a>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -227,7 +234,7 @@
                       />
                     </svg>
                   </a>
-                  <a href="#">
+                  <a>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -235,6 +242,7 @@
                       viewBox="0 0 20 20"
                       fill="none"
                       class="icon-trash"
+                      id="p1"
                     >
                       <path
                         fill-rule="evenodd"
@@ -262,13 +270,20 @@
                 class="cart__mainBox_productBox_amount cart__mainBox_discontWrapper"
               >
                 <div class="cart__mainBox_productBox_amount_priceBox">
-                  <span class="cart__mainBox_productBox_amount-discount">
-                    522 <span> сом</span>
-                  </span>
+                  <input
+                    type="text"
+                    class="cart__mainBox_productBox_amount-discount"
+                    id="price1"
+                    value="522"
+                    contenteditable="true"
+                    disabled
+                  />
+                  <span> сом</span>
                 </div>
                 <div class="item__sum-discountless">
                   <span
-                    class="cart__mainBox_productBox_amount-price discontText"
+                    class="cart__mainBox_productBox_amount-price"
+                    id="discont1"
                     >1051 сом</span
                   >
                   <div class="discontInform">
@@ -291,13 +306,14 @@
 
             <!-- ===========   PHONE CASE    =============       -->
 
-            <div class="cart__mainBox_productBox">
+            <div class="cart__mainBox_productBox" id="product2">
               <div class="cart__mainBox_productBox_product">
                 <div class="cart__mainBox_productBox_product_imgCheckbox">
                   <label class="cart__mainBox_productBox_product_lable">
                     <input
                       type="checkbox"
-                      class="cart__mainBox_productBox_product_input"
+                      class="cart__mainBox_productBox_product_input checkbox"
+                      id="checkbox2"
                     />
                     <span
                       class="cart__mainBox_productBox_product_checkbox cart__mainBox_productBox_product_checkbox-mobile"
@@ -353,22 +369,30 @@
                   <div class="cart__mainBox_productBox_icon_buttonBox">
                     <button
                       class="cart__mainBox_productBox_icon_buttonBox_button"
+                      id="minus2"
                     >
                       -
                     </button>
-                    <span class="cart__mainBox_productBox_icon_buttonBox_span"
-                      >200</span
-                    >
+                    <input
+                      type="text"
+                      class="cart__mainBox_productBox_icon_buttonBox_input"
+                      id="phoneCount"
+                      value="1"
+                    />
                     <button
                       class="cart__mainBox_productBox_icon_buttonBox_button"
+                      id="plus2"
                     >
                       +
                     </button>
                   </div>
-                  <p class="cart__mainBox_productBox_icon_text"></p>
+                  <p
+                    class="cart__mainBox_productBox_icon_text"
+                    id="quantity2"
+                  ></p>
                 </div>
                 <div class="cart__mainBox_productBox_icon_iconBox">
-                  <a href="#">
+                  <a>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -385,7 +409,7 @@
                       />
                     </svg>
                   </a>
-                  <a href="#">
+                  <a>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -393,6 +417,7 @@
                       viewBox="0 0 20 20"
                       fill="none"
                       class="icon-trash"
+                      id="p2"
                     >
                       <path
                         fill-rule="evenodd"
@@ -420,14 +445,19 @@
                 class="cart__mainBox_productBox_amount cart__mainBox_discontWrapper"
               >
                 <div class="cart__mainBox_productBox_amount_priceBox">
-                  <span class="cart__mainBox_productBox_amount-discount">
-                    2 100 047 <span> сом</span>
-                  </span>
+                  <input
+                    class="cart__mainBox_productBox_amount-discount"
+                    id="price2"
+                    value="10500"
+                    disabled
+                  />
+                  <span> сом</span>
                 </div>
                 <div class="item__sum-discountless">
                   <span
-                    class="cart__mainBox_productBox_amount-price discontText"
-                    >2 300 047 сом</span
+                    class="cart__mainBox_productBox_amount-price"
+                    id="discont2"
+                    >11500 сом</span
                   >
                   <div class="discontInform">
                     <div class="discontInform_text discontInform_box">
@@ -449,13 +479,14 @@
 
             <!-- ===========   PENCILES    =============       -->
 
-            <div class="cart__mainBox_productBox">
+            <div class="cart__mainBox_productBox" id="product3">
               <div class="cart__mainBox_productBox_product">
                 <div class="cart__mainBox_productBox_product_imgCheckbox">
                   <label class="cart__mainBox_productBox_product_lable">
                     <input
                       type="checkbox"
-                      class="cart__mainBox_productBox_product_input"
+                      class="cart__mainBox_productBox_product_input checkbox"
+                      id="checkbox3"
                     />
                     <span
                       class="cart__mainBox_productBox_product_checkbox cart__mainBox_productBox_product_checkbox-mobile"
@@ -510,24 +541,33 @@
                     <div class="cart__mainBox_productBox_icon_buttonBox">
                       <button
                         class="cart__mainBox_productBox_icon_buttonBox_button"
+                        id="minus3"
                       >
                         -
                       </button>
-                      <span class="cart__mainBox_productBox_icon_buttonBox_span"
-                        >2</span
-                      >
+                      <input
+                        type="text"
+                        class="cart__mainBox_productBox_icon_buttonBox_input"
+                        id="pencilCount"
+                        value="1"
+                        disabled
+                      />
                       <button
                         class="cart__mainBox_productBox_icon_buttonBox_button"
+                        id="plus3"
                       >
                         +
                       </button>
                     </div>
-                    <p class="cart__mainBox_productBox_icon_text">
-                      Осталось 2 шт.
+                    <p
+                      class="cart__mainBox_productBox_icon_text"
+                      id="quantity3"
+                    >
+                      Осталось 3 шт.
                     </p>
                   </div>
                   <div class="cart__mainBox_productBox_icon_iconBox">
-                    <a href="#">
+                    <a>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"
@@ -544,7 +584,7 @@
                         />
                       </svg>
                     </a>
-                    <a href="#">
+                    <a>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"
@@ -552,6 +592,7 @@
                         viewBox="0 0 20 20"
                         fill="none"
                         class="icon-trash"
+                        id="p3"
                       >
                         <path
                           fill-rule="evenodd"
@@ -580,14 +621,19 @@
                 class="cart__mainBox_productBox_amount cart__mainBox_discontWrapper"
               >
                 <div class="cart__mainBox_productBox_amount_priceBox">
-                  <span class="cart__mainBox_productBox_amount-discount">
-                    494 <span> сом</span>
-                  </span>
+                  <input
+                    class="cart__mainBox_productBox_amount-discount"
+                    id="price3"
+                    value="247"
+                    disabled
+                  />
+                  <span> сом</span>
                 </div>
                 <div class="item__sum-discountless">
                   <span
-                    class="cart__mainBox_productBox_amount-price discontText"
-                    >950 сом</span
+                    class="cart__mainBox_productBox_amount-price"
+                    id="discont3"
+                    >475 сом</span
                   >
                   <div class="discontInform">
                     <div class="discontInform_text discontInform_box">
@@ -648,7 +694,7 @@
           <hr />
 
           <div class="notAvailable__mainBox">
-            <div class="notAvailable__mainBox_productBox">
+            <div class="notAvailable__mainBox_productBox" id="product4">
               <div class="notAvailable__mainBox_productBox_product">
                 <div class="notAvailable__mainBox_productBox_img">
                   <img
@@ -679,7 +725,7 @@
                 </div>
               </div>
               <div class="notAvailable__mainBox_productBox_icon">
-                <a href="#">
+                <a>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -696,7 +742,7 @@
                     />
                   </svg>
                 </a>
-                <a href="#">
+                <a>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -704,6 +750,7 @@
                     viewBox="0 0 20 20"
                     fill="none"
                     class="icon-trash"
+                    id="p4"
                   >
                     <path
                       fill-rule="evenodd"
@@ -728,7 +775,7 @@
               </div>
             </div>
 
-            <div class="notAvailable__mainBox_productBox">
+            <div class="notAvailable__mainBox_productBox" id="product5">
               <div class="notAvailable__mainBox_productBox_product">
                 <img
                   src="./imgs/phone.png"
@@ -751,7 +798,7 @@
                 </div>
               </div>
               <div class="notAvailable__mainBox_productBox_icon">
-                <a href="#">
+                <a>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -768,7 +815,7 @@
                     />
                   </svg>
                 </a>
-                <a href="#">
+                <a>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -776,6 +823,7 @@
                     viewBox="0 0 20 20"
                     fill="none"
                     class="icon-trash"
+                    id="p5"
                   >
                     <path
                       fill-rule="evenodd"
@@ -800,7 +848,7 @@
               </div>
             </div>
 
-            <div class="notAvailable__mainBox_productBox">
+            <div class="notAvailable__mainBox_productBox" id="product6">
               <div class="notAvailable__mainBox_productBox_product">
                 <div class="notAvailable__mainBox_productBox_img">
                   <img
@@ -822,7 +870,7 @@
                 </h3>
               </div>
               <div class="notAvailable__mainBox_productBox_icon">
-                <a href="#">
+                <a>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -839,13 +887,14 @@
                     />
                   </svg>
                 </a>
-                <a href="#">
+                <a>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
                     height="20"
                     viewBox="0 0 20 20"
                     class="icon-trash"
+                    id="p6"
                   >
                     <path
                       fill-rule="evenodd"
@@ -1000,7 +1049,7 @@
                 class="recipient__form_inputBox recipient__formAnotherInform-box"
               >
                 <input
-                  type="email"
+                  type="text"
                   name="email"
                   id="email"
                   class="recipient__form_inputBox-input recipient-input"
@@ -1055,24 +1104,26 @@
             <div class="result__main_header">
               <h2 class="result__main_header-h2">Итогo</h2>
               <h3 class="result__main_header-h3">
-                2 101 063 <span class="result__main_header-h3-span">сом</span>
+                0 <span class="result__main_header-h3-span">сом</span>
               </h3>
             </div>
             <div class="result__main_price">
               <div class="result__main_price-text">
-                <p class="result__main_price-text-p">203 товара</p>
+                <p class="result__main_price-text-p">0 товаров</p>
                 <p
                   class="result__main_price-text-p result__main_price-text-price"
+                  id="totalAmount"
                 >
-                  2 302 048 сом
+                  0 сом
                 </p>
               </div>
               <div class="result__main_price-text">
                 <p class="result__main_price-text-p">Скидка</p>
                 <p
                   class="result__main_price-text-p result__main_price-text-price"
+                  id="totalDiscount"
                 >
-                  −200 985 сом
+                  0 сом
                 </p>
               </div>
               <div class="result__main_price-text">
@@ -1255,7 +1306,12 @@
           alt="cart icon"
           class="mobileMenu-icon"
         />
-        <div class="mobileMenu-icon_quantity mobileMenu-icon_item-label">3</div>
+        <div
+          class="mobileMenu-icon_quantity mobileMenu-icon_item-label hide"
+          id="quantityCardMobile"
+        >
+          0
+        </div>
       </div>
       <img
         src="./icons/favorites.svg"
@@ -1272,5 +1328,6 @@
     <script src="./index.js"></script>
     <script src="./sectionCard.js"></script>
     <script src="./sectionDelivery.js"></script>
+    <script src="./sectionProduct.js"></script>
   </body>
 </html>
