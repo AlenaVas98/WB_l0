@@ -1,21 +1,21 @@
 let dataDelivery = [
   {
     id: "d1",
-    street: " Бишкек, улица Ахматбека Суюмбаева, 12/1",
+    street: "Бишкек, улица Ахматбека Суюмбаева, 12/1",
     rating: "4.99",
     type: "Пункт выдачи",
     typeCard: "в пункт выдачи",
   },
   {
     id: "d2",
-    street: "г. Бишкек, микрорайон Джал, улица Ахунбаева Исы, д. 67/1",
+    street: "Бишкек, улица Ахунбаева Исы, д. 67/1",
     rating: "4.99",
     type: "Пункт выдачи",
     typeCard: "в пункт выдачи",
   },
   {
     id: "d3",
-    street: "г. Бишкек, улица Табышалиева, д. 57",
+    street: "Бишкек, улица Табышалиева, д. 57",
     rating: "4.99",
     type: "Пункт выдачи",
     typeCard: "в пункт выдачи",
@@ -233,7 +233,7 @@ const closeDeliveryBox = function () {
 
   // ============
   deliveryIinform.innerHTML = `
-   <p class="delivery__boxInform_address-textMain">
+   <p class="delivery__boxInform_address-textMain ">
    ${newAddressDelivery[0].street}
    </p>
    <p class="delivery__boxInform_address-text">

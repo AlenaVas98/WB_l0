@@ -1,0 +1,202 @@
+.recipient {
+  display: flex;
+  width: 86.1rem;
+  height: 21rem;
+  padding: 0px 6px 2px 25px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  border-radius: 16px;
+  background: var(--background-white, #fff);
+  margin-bottom: 40px;
+}
+.recipient__heading {
+  margin-bottom: 6px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.recipient__text {
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: -0.24px;
+}
+
+.recipient__formNameSurname {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.recipient__formAnotherInform {
+  display: flex;
+  align-content: space-between;
+  gap: 5px;
+}
+
+/* ============ INPUT BOX ============ */
+.recipient__form_inputBox {
+  position: relative;
+  margin-bottom: 25px;
+}
+.recipient-input {
+  font-size: 18px;
+  padding: 10px 0 10px 5px;
+  border: none;
+  border-bottom: 1px solid var(--system-grey);
+}
+.recipient-input:focus {
+  outline: none;
+}
+.recipient__formNameSurname {
+  width: 33rem;
+}
+.recipient__form_inputBox-input {
+  width: 21rem;
+}
+.recipient__formAnotherInform-box {
+  width: 23.8rem;
+}
+/* ============ LABEL ============ */
+.recipient__form_inputBox-label {
+  color: var(--system-grey);
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  top: 14px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.recipient-input:focus ~ .recipient__form_inputBox-label,
+.recipient-input:valid ~ .recipient__form_inputBox-label {
+  top: -24px;
+  font-size: 13px;
+}
+/* ============ BOTTOM BARS ============ */
+.bar {
+  position: relative;
+  display: block;
+  width: 338px;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+}
+.bar:before,
+.bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+}
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  right: 50%;
+}
+*/
+/* ============ HIGHLIGHTER ============ */
+.highlight {
+  position: absolute;
+  height: 50%;
+  width: 100px;
+  top: 10%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ============ ERROR ============ */
+.errorName,
+.errorSurname,
+.errorEmail,
+.errorPhone,
+.errorInn {
+  display: none;
+}
+.error {
+  display: inline-block;
+  position: absolute;
+  top: 54px;
+  color: var(--system-red);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+}
+.errorInput {
+  color: var(--system-red);
+}
+@media (max-width: 1024px) {
+  .recipient {
+    width: 61rem;
+    height: 223px;
+    gap: 15px;
+  }
+  .recipient__heading {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .recipient__formNameSurname:not(:last-of-type),
+  .recipient__formAnotherInform:not(:last-of-type) {
+    margin-bottom: -3px;
+  }
+  .recipient__formNameSurname {
+    width: 279px;
+  }
+  .recipient__form_inputBox {
+    width: 285px;
+  }
+
+  .recipient__formAnotherInform-box {
+    width: 200px;
+  }
+  .recipient__form_inputBox-input {
+    width: 176px;
+  }
+  .bar {
+    font-size: 11.5px;
+    line-height: 19px;
+  }
+}
+
+@media (max-width: 320px) {
+  .recipient {
+    margin: 0px 2.7px;
+    margin-bottom: 8px;
+    padding: 0 10px;
+    width: 29.4em;
+    height: 391px;
+    padding-top: 15px;
+  }
+
+  .recipient__heading {
+    margin-bottom: -8px;
+    margin-top: -5px;
+    font-size: 20px;
+  }
+
+  .recipient__formNameSurname,
+  .recipient__formAnotherInform {
+    gap: 8px;
+  }
+  .recipient__formNameSurname,
+  .recipient__formAnotherInform {
+    flex-direction: column;
+  }
+  .recipient__formNameSurname:not(:last-of-type),
+  .recipient__formAnotherInform:not(:last-of-type) {
+    margin-bottom: -4px;
+  }
+  .recipient__form_inputBox-input,
+  .recipient__formNameSurname {
+    width: 28rem;
+  }
+  .bar {
+    line-height: 28px;
+  }
+}

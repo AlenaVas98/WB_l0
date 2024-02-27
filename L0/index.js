@@ -13,9 +13,9 @@ const outOfStokeCloseBtn = document.querySelector(
 );
 
 const modalOutOfStoke = function () {
-  outOfStoke.classList.toggle("cartHidden");
-  outOfStokeUpBox.classList.toggle("cartHidden");
-  outOfStokeDownBox.classList.toggle("cartHidden");
+  outOfStoke.classList.toggle("hide");
+  outOfStokeUpBox.classList.toggle("hide");
+  outOfStokeDownBox.classList.toggle("hide");
 };
 outOfStokeOpenBtn.addEventListener("click", modalOutOfStoke);
 outOfStokeCloseBtn.addEventListener("click", modalOutOfStoke);

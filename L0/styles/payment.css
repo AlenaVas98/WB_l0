@@ -1,0 +1,114 @@
+/* -------------------          PAYMENT          ----------------*/
+.payment {
+  display: flex;
+  padding: 5px 20px 24px 26px;
+  flex-direction: column;
+  width: 84.5rem;
+  height: 10.8rem;
+  align-self: stretch;
+  border-radius: 16px;
+  background: var(--system-white);
+}
+.payment__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+.payment__head-text {
+  flex: 1 0 0;
+  color: var(--text-black);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.4px;
+  margin-top: 14px;
+}
+.payment__head-button {
+  color: var(--system-magenta);
+  text-align: right;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  background: transparent;
+  border: none !important;
+  padding-top: 4px;
+}
+.payment__cardBox {
+  display: grid;
+  grid-template-columns: 1fr 4fr 3fr;
+  align-items: center;
+  width: 300px;
+  margin-bottom: 0;
+}
+
+.payment__cardBox_img {
+  display: flex;
+  width: 32px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background: var(--system-smoky);
+}
+.payment__cardBox_numberCard,
+.payment__cardBox_dateCard {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+.payment__cardBox_textInform {
+  margin-top: 0;
+  color: var(--system-grey);
+  font-size: 1.18rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0.2px;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+@media (max-width: 1024px) {
+  .payment {
+    width: 59.5rem;
+    gap: 1px;
+    height: 10rem;
+  }
+  .payment__head-text {
+    margin-top: 10px;
+  }
+  .payment__head-button {
+    margin-top: -4px;
+  }
+}
+
+@media (max-width: 320px) {
+  .payment {
+    width: 28.2em;
+    margin-bottom: 0;
+    padding: 5px 20px 24px 17px;
+  }
+  .payment__head-text {
+    width: 200px;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  .payment__head-button {
+    margin-top: 3px;
+  }
+  .payment__cardBox_numberCard,
+  .payment__cardBox_dateCard {
+    font-size: 15px;
+    letter-spacing: -0.24px;
+  }
+  .payment__cardBox {
+    grid-template-columns: 43px 149px;
+  }
+  .payment__cardBox_textInform {
+    font-size: 12px;
+  }
+}

@@ -147,10 +147,9 @@ function counterProduct() {
         if (valueTShirt === 3) {
           //проверить
           document.getElementById("plus1").disabled = true;
-          quantityTshirt.classList.add("hide");
+          quantityTshirt.innerHTML = ``;
         } else {
           document.getElementById("plus1").disabled = false;
-          quantityTshirt.classList.remove("hide");
         }
 
         tshirtCount.value = valueTShirt;
@@ -207,11 +206,9 @@ function counterProduct() {
         }
         if (valuePencil == product.quantity) {
           document.getElementById("plus3").disabled = true;
-          quantityPencils.classList.add("hide");
-          console.log(product.quantity);
+          quantityPencils.innerHTML = ``;
         } else {
           document.getElementById("plus3").disabled = false;
-          quantityPencils.classList.remove("hide");
         }
 
         pencilCount.value = valuePencil;
@@ -312,9 +309,9 @@ checkboxPrice.addEventListener("change", addPrice);
 
 // =========================================================================== cart
 const modalCart = function () {
-  cart.classList.toggle("cartHidden");
-  cartUpBox.classList.toggle("cartHidden");
-  cartDownBox.classList.toggle("cartHidden");
+  cart.classList.toggle("hide");
+  cartUpBox.classList.toggle("hide");
+  cartDownBox.classList.toggle("hide");
 };
 openBtn.addEventListener("click", modalCart);
 closeBtn.addEventListener("click", modalCart);

@@ -1,0 +1,204 @@
+/* -------------------         OUT OF STOCK         ----------------*/
+.notAvailable {
+  width: 896px;
+}
+
+/* ============ TEXT ============ */
+.notAvailable__downBox_text,
+.notAvailable__upBox_text {
+  font-size: 14px;
+  font-weight: 700;
+  flex: 1 0 0;
+  letter-spacing: 0.5px;
+  margin-top: -1px;
+}
+
+.notAvailable__mainBox_productBox-mainText {
+  width: 293px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 23px;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+.notAvailable__mainBox_productBox-mainText-a {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: var(--system-grey);
+  text-decoration: none;
+}
+.notAvailable__mainBox_productBox-text {
+  color: var(--system-grey);
+  letter-spacing: 0.2px;
+  font-size: 12px;
+  margin-top: 8px;
+}
+/* ============ BOX ============ */
+.notAvailable__downBox,
+.notAvailable__upBox {
+  display: flex;
+  align-items: center;
+}
+.notAvailable__mainBox_productBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: space-between;
+  padding-bottom: 18px;
+}
+.notAvailable__mainBox_productBox_product {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+.notAvailable__mainBox_productBox_icon {
+  display: flex;
+  align-items: center;
+  padding-left: 26rem;
+  padding-top: 12px;
+  gap: 20px;
+  width: 18px;
+  height: 16px;
+}
+.notAvailable__mainBox_productBox_productText {
+  display: flex;
+  gap: 1.4rem;
+}
+.notAvailable__mainBox_productBox_icon_img {
+  height: 20px;
+  width: 20px;
+}
+
+/* ============ BUTTON ============ */
+.notAvailable__mainBox_productBox-img_marginTop {
+  margin-top: 14px;
+}
+.outOfStockHidden {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .notAvailable {
+    width: 64rem;
+  }
+  .notAvailable__mainBox_productBox_productText {
+    gap: 0px;
+  }
+  .notAvailable__downBox_text,
+  .notAvailable__upBox_text {
+    margin-top: 5px;
+  }
+  .notAvailable__mainBox_productBox_icon {
+    padding-left: 77px;
+    gap: 16px;
+  }
+  .notAvailable__mainBox_productBox-text,
+  .notAvailable__mainBox_productBox-mainText {
+    margin-top: 9px;
+    padding-left: 18px;
+  }
+  .notAvailable__downBox_btn-open,
+  .notAvailable__upBox_btn-close,
+  .btn-close,
+  .btn-open {
+    padding-left: 6px;
+    padding-right: 1px;
+    padding-bottom: 0px;
+  }
+  .notAvailable__mainBox_productBox-mainText-a {
+    line-height: 21px;
+    letter-spacing: 0.8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .notAvailable {
+    width: 29em;
+    margin-left: 15px;
+  }
+  .notAvailable__downBox_text,
+  .notAvailable__upBox_text {
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+  }
+  .notAvailable__mainBox_productBox_icon {
+    display: flex;
+    gap: 2.4rem;
+    padding-left: 47px;
+    grid-column: -2;
+    grid-row: 2;
+    width: 40px;
+    height: 39px;
+    margin-right: 20px;
+  }
+  .notAvailable__mainBox_productBox_product {
+    width: 174px;
+    height: 107px;
+  }
+  .notAvailable__mainBox_productBox-mainText-a {
+    font-size: 13px;
+    letter-spacing: 0.2px;
+  }
+  .notAvailable__mainBox_productBox-text {
+    font-size: 1.4rem;
+    margin-top: 0;
+    padding-top: 0;
+    letter-spacing: -0.5px;
+  }
+  .notAvailable__mainBox_productBox-mainText {
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    width: 205px;
+    height: 42px;
+  }
+
+  .notAvailable__mainBox_productBox-text,
+  .notAvailable__mainBox_productBox-mainText {
+    padding-left: 15px;
+  }
+  .notAvailable__mainBox_productBox:not(:last-child) {
+    padding-bottom: 10px;
+    border-bottom: 0.4px solid var(--system-grey);
+  }
+
+  .notAvailable__mainBox_productBox {
+    padding-bottom: 26px;
+  }
+  .notAvailable__mainBox_productBox_img {
+    position: relative;
+    margin-top: -2px;
+    width: 82px;
+    height: 104px;
+    padding-top: 7px;
+  }
+  .notAvailable__mainBox_productBox_img-textMobile {
+    position: absolute;
+    display: inline-block;
+    font-size: 13px;
+    bottom: 0px;
+    left: 5px;
+    background-color: var(--system-white);
+    height: 15px;
+    text-align: center;
+    padding: 3px;
+    border-radius: 5px;
+  }
+  .notAvailable__downBox_btn-open,
+  .notAvailable__upBox_btn-close,
+  .btn-close,
+  .btn-open {
+    padding-right: 7px;
+  }
+  .secondText {
+    padding-left: 9px;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.margin-top {
+  margin-top: 16px;
+}
