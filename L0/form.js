@@ -25,12 +25,12 @@ function validateForm(input) {
   if (value.length === 0) {
     errorElement.classList.add("error");
     errorElement.classList.remove("hide");
-    inputElement.classList.add("errorInput");
+    inputElement.classList.add("error-input");
     orderButton.classList.remove("test");
   } else {
     errorElement.classList.remove("error");
     errorElement.classList.add("hide");
-    inputElement.classList.remove("errorInput");
+    inputElement.classList.remove("error-input");
     orderButton.classList.add("test");
   }
 }
@@ -57,12 +57,12 @@ const validateInput = (input, regex) => {
   if (value.length !== 0 && !isValidInput) {
     errorElement.classList.add("error");
     errorElement.classList.remove("hide");
-    inputElement.classList.add("errorInput");
+    inputElement.classList.add("error-input");
     return false;
   } else {
     errorElement.classList.remove("error");
     errorElement.classList.add("hide");
-    inputElement.classList.remove("errorInput");
+    inputElement.classList.remove("error-input");
     return true;
   }
 };
@@ -77,7 +77,7 @@ form.addEventListener("click", (e) => {
 });
 
 // =================================================================== phone Input
-const phoneFormInputError = document.querySelector(".errorPhone");
+const phoneFormInputError = document.querySelector(".error-phone");
 const phoneFormInput = document.querySelector("#phone");
 
 var eventCalllback = function (e) {
@@ -117,18 +117,18 @@ const validatePhone = (event) => {
   } else if (inputedPhone.length !== 16) {
     phoneFormInputError.classList.add("error");
     phoneFormInputError.classList.remove("hide");
-    phoneFormInput.classList.add("errorInput");
+    phoneFormInput.classList.add("error-input");
   } else {
     phoneFormInputError.classList.remove("error");
     phoneFormInputError.classList.add("hide");
-    phoneFormInput.classList.remove("errorInput");
+    phoneFormInput.classList.remove("error-input");
   }
 };
 phoneFormInput.addEventListener("focusout", validatePhone);
 
 // =================================================================== inn Input
 const InnFormInput = document.querySelector("#inn");
-const InnFormInputError = document.querySelector(".errorInn");
+const InnFormInputError = document.querySelector(".error-inn");
 InnFormInput.addEventListener("input", function (e) {
   e.target.value = e.target.value.replace(/\D/g, "").slice(0, 14);
 });
@@ -140,11 +140,11 @@ const validateInn = (event) => {
   } else if (inputedInn.length !== 14) {
     InnFormInputError.classList.add("error");
     InnFormInputError.classList.remove("hide");
-    InnFormInput.classList.add("errorInput");
+    InnFormInput.classList.add("error-input");
   } else {
     InnFormInputError.classList.remove("error");
     InnFormInputError.classList.add("hide");
-    InnFormInput.classList.remove("errorInput");
+    InnFormInput.classList.remove("error-input");
   }
 };
 InnFormInput.addEventListener("focusout", validateInn);

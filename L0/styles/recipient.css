@@ -111,7 +111,7 @@
   font-weight: 400;
   line-height: 14px;
 }
-.errorInput {
+.error-input {
   color: var(--system-red);
 }
 @media (max-width: 1024px) {
