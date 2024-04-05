@@ -1,61 +1,81 @@
-// =================================================================== Name Input
-const userFormInputNameError = document.querySelector(".errorName");
-const userFormInputName = document.querySelector("#firstName");
-
-const validateName = (event) => {
-  const inputedName = event.target.value;
-  const nameRegExp = /[A-zА-Яа-я\-]/;
-  const isValidName = nameRegExp.test(inputedName);
-
-  if (inputedName.length !== 0 && !isValidName) {
-    userFormInputNameError.classList.add("error");
-    userFormInputName.classList.add("errorInput");
+const inputs = [
+  { id: "firstName", errorClass: ".error-name", regex: /[A-zА-Яа-я\-]/ },
+  { id: "surname", errorClass: ".error-surname", regex: /[A-zА-Яа-я\-]/ },
+  {
+    id: "email",
+    errorClass: ".error-email",
+    regex: /^(\S+)@([a-z0-9-]+)(\.)([a-z]{2,4})(\.?)([a-z]{0,4})+$/,
+  },
+  {
+    id: "phone",
+    errorClass: ".error-phone",
+  },
+  {
+    id: "inn",
+    errorClass: ".error-inn",
+  },
+];
+const orderButton = document.querySelector(".result_box-button_button");
+const formRecipent = document.querySelector("#formRecipent");
+const form = document.querySelector("#form");
+function validateForm(input) {
+  const inputElement = document.querySelector(`#${input.id}`);
+  const errorElement = document.querySelector(input.errorClass);
+  const value = inputElement.value.trim();
+  if (value.length === 0) {
+    errorElement.classList.add("error");
+    errorElement.classList.remove("hide");
+    inputElement.classList.add("errorInput");
+    orderButton.classList.remove("test");
   } else {
-    userFormInputNameError.classList.remove("error");
-    userFormInputName.classList.remove("errorInput");
+    errorElement.classList.remove("error");
+    errorElement.classList.add("hide");
+    inputElement.classList.remove("errorInput");
+    orderButton.classList.add("test");
   }
-  // userFormInputName
-};
-userFormInputName.addEventListener("focusout", validateName);
-// =================================================================== Surname Input
-const surnameFormInputError = document.querySelector(".errorSurname");
-const surnameFormInput = document.querySelector("#surname");
+}
 
-const validateSurname = (event) => {
-  const inputedSurname = event.target.value;
-  const surnameRegExp = /[A-zА-Яа-я\-]/;
-  const isValidSurName = surnameRegExp.test(inputedSurname);
-  if (inputedSurname.length !== 0 && !isValidSurName) {
-    surnameFormInputError.classList.add("error");
-    surnameFormInput.classList.add("errorInput");
+orderButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  inputs.map((item) => validateForm(item, item.regex));
+
+  if (orderButton.classList.contains("test")) {
+    form.reset();
+    alert("Успешно");
   } else {
-    surnameFormInputError.classList.remove("error");
-    surnameFormInput.classList.remove("errorInput");
+    formRecipent.scrollIntoView();
   }
-  // userFormInputName
-};
-surnameFormInput.addEventListener("focusout", validateSurname);
-// =================================================================== email Input
-const emailFormInputError = document.querySelector(".errorEmail");
-const emailFormInput = document.querySelector("#email");
+});
 
-const validateEmail = (event) => {
-  const inputedEmail = event.target.value;
-  const emailRegExp = /^(\S+)@([a-z0-9-]+)(\.)([a-z]{2,4})(\.?)([a-z]{0,4})+$/;
-  const isValidEmail = emailRegExp.test(inputedEmail);
+// =================================================================== Validate name, surname and email
 
-  if (inputedEmail.length !== 0 && !isValidEmail) {
-    emailFormInputError.classList.add("error");
-    emailFormInputError.classList.remove("errorEmail");
-    emailFormInput.classList.add("errorInput");
+const validateInput = (input, regex) => {
+  const inputElement = document.querySelector(`#${input.id}`);
+  const errorElement = document.querySelector(input.errorClass);
+  const value = inputElement.value.trim();
+  const isValidInput = regex.test(value);
+  if (value.length !== 0 && !isValidInput) {
+    errorElement.classList.add("error");
+    errorElement.classList.remove("hide");
+    inputElement.classList.add("errorInput");
+    return false;
   } else {
-    emailFormInputError.classList.remove("error");
-    emailFormInputError.classList.add("errorEmail");
-    emailFormInput.classList.remove("errorInput");
+    errorElement.classList.remove("error");
+    errorElement.classList.add("hide");
+    inputElement.classList.remove("errorInput");
+    return true;
   }
 };
-emailFormInput.addEventListener("onchange", validateEmail);
-emailFormInput.addEventListener("focusout", validateEmail);
+form.addEventListener("click", (e) => {
+  const inputElement = document.querySelector(`#${e.target.id}`);
+  inputElement.addEventListener("focusout", function (e) {
+    if (e.target.tagName === "INPUT") {
+      let input = inputs.find((item) => item.id === e.target.id);
+      validateInput(input, input.regex);
+    }
+  });
+});
+
 // =================================================================== phone Input
 const phoneFormInputError = document.querySelector(".errorPhone");
 const phoneFormInput = document.querySelector("#phone");
@@ -96,20 +116,22 @@ const validatePhone = (event) => {
     return;
   } else if (inputedPhone.length !== 16) {
     phoneFormInputError.classList.add("error");
-    phoneFormInputError.classList.remove("errorPhone");
+    phoneFormInputError.classList.remove("hide");
     phoneFormInput.classList.add("errorInput");
   } else {
     phoneFormInputError.classList.remove("error");
-    phoneFormInputError.classList.add("errorPhone");
+    phoneFormInputError.classList.add("hide");
     phoneFormInput.classList.remove("errorInput");
   }
 };
 phoneFormInput.addEventListener("focusout", validatePhone);
 
 // =================================================================== inn Input
-const InnFormInputError = document.querySelector(".errorInn");
 const InnFormInput = document.querySelector("#inn");
-
+const InnFormInputError = document.querySelector(".errorInn");
+InnFormInput.addEventListener("input", function (e) {
+  e.target.value = e.target.value.replace(/\D/g, "").slice(0, 14);
+});
 const validateInn = (event) => {
   const inputedInn = event.target.value;
 
@@ -117,11 +139,11 @@ const validateInn = (event) => {
     return;
   } else if (inputedInn.length !== 14) {
     InnFormInputError.classList.add("error");
-    InnFormInputError.classList.remove("errorInn");
+    InnFormInputError.classList.remove("hide");
     InnFormInput.classList.add("errorInput");
   } else {
     InnFormInputError.classList.remove("error");
-    InnFormInputError.classList.add("errorInn");
+    InnFormInputError.classList.add("hide");
     InnFormInput.classList.remove("errorInput");
   }
 };
@@ -131,46 +153,3 @@ InnFormInput.addEventListener("keypress", function (evt) {
     evt.preventDefault();
   }
 });
-// =================================================================== order button
-
-const orderButton = document.querySelector(".result_boxButton_button");
-const formRecipent = document.querySelector("#formRecipent");
-
-const form = document.querySelector("#form");
-function checkForm(e) {
-  e.preventDefault();
-  let inputedInn = document.querySelector("#inn").value;
-  let inputedPhone = document.querySelector("#phone").value;
-  let inputedEmail = document.querySelector("#email").value;
-  let inputedName = document.querySelector("#firstName").value;
-  let inputedSurname = document.querySelector("#surname").value;
-  if (
-    inputedInn.length === 0 ||
-    inputedPhone.length === 0 ||
-    inputedEmail.length === 0 ||
-    inputedName.length === 0 ||
-    inputedSurname.length === 0
-  ) {
-    InnFormInput.classList.toggle("errorInput");
-    InnFormInputError.classList.toggle("error");
-    phoneFormInput.classList.toggle("errorInput");
-    phoneFormInputError.classList.toggle("error");
-    emailFormInput.classList.toggle("errorInput");
-    emailFormInputError.classList.toggle("error");
-    surnameFormInput.classList.toggle("errorInput");
-    surnameFormInputError.classList.toggle("error");
-    userFormInputName.classList.toggle("errorInput");
-    userFormInputNameError.classList.toggle("error");
-    formRecipent.scrollIntoView();
-    return;
-  }
-
-  document.querySelector("#inn").value = "";
-  document.querySelector("#phone").value = "";
-  document.querySelector("#email").value = "";
-  document.querySelector("#firstName").value = "";
-  document.querySelector("#surname").value = "";
-
-  alert("успешно");
-}
-orderButton.addEventListener("click", checkForm);

@@ -1,119 +1,130 @@
-let dataDelivery = [
-  {
-    id: "d1",
-    street: "Бишкек, улица Ахматбека Суюмбаева, 12/1",
-    rating: "4.99",
-    type: "Пункт выдачи",
-    typeCard: "в пункт выдачи",
-  },
-  {
-    id: "d2",
-    street: "Бишкек, улица Ахунбаева Исы, д. 67/1",
-    rating: "4.99",
-    type: "Пункт выдачи",
-    typeCard: "в пункт выдачи",
-  },
-  {
-    id: "d3",
-    street: "Бишкек, улица Табышалиева, д. 57",
-    rating: "4.99",
-    type: "Пункт выдачи",
-    typeCard: "в пункт выдачи",
-  },
-];
+const deliveryData = {
+  self: [
+    {
+      id: "d1",
+      street: "Бишкек, улица Ахматбека Суюмбаева, 12/1",
+      rating: "4.99",
+      type: "Пункт выдачи",
+      typeCard: "в пункт выдачи",
+    },
+    {
+      id: "d2",
+      street: "Бишкек, улица Ахунбаева Исы, д. 67/1",
+      rating: "4.99",
+      type: "Пункт выдачи",
+      typeCard: "в пункт выдачи",
+    },
+    {
+      id: "d3",
+      street: "Бишкек, улица Табышалиева, д. 57",
+      rating: "4.99",
+      type: "Пункт выдачи",
+      typeCard: "в пункт выдачи",
+    },
+  ],
+  courier: [
+    {
+      id: "c1",
+      street: "Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1",
+      type: "Курьером",
+      typeCard: "курьером",
+      rating: "",
+    },
+    {
+      id: "c2",
+      street: "Бишкек, улица Жукеева-Пудовкина, 77/1",
+      type: "Курьером",
+      typeCard: "курьером",
+      rating: "",
+    },
+    {
+      id: "c3",
+      street: "Бишкек, улица Табышалиева, 57",
+      type: "Курьером",
+      typeCard: "курьером",
+      rating: "",
+    },
+  ],
+};
 
-let dataDeliveryCourier = [
-  {
-    id: "c1",
-    street: " Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1",
-    type: "Курьером",
-    typeCard: "курьером",
-    rating: "",
-  },
-  {
-    id: "c2",
-    street: "Бишкек, улица Жукеева-Пудовкина, 77/1",
-    type: "Курьером",
-    typeCard: "курьером",
-    rating: "",
-  },
-  {
-    id: "c3",
-    street: "Бишкек, улица Табышалиева, 57",
-    type: "Курьером",
-    typeCard: "курьером",
-    rating: "",
-  },
-];
-
-const selfDelivery = document.querySelector(".selfDelivery"); // selfDelivery_hide
+const selfDelivery = document.querySelector(".selfDelivery");
 const courierDelivery = document.querySelector(".courierDelivery"); //courierDelivery_hide
-const selfDeliveryButton = document.querySelector(".selfDeliveryButton");
-const courierDeliveryButton = document.querySelector(".courierDeliveryButton");
-const typeDelivery = document.querySelector(".delivery__typeDelivery");
+const selfDeliveryButton = document.getElementById("self-delivery-button");
+const courierDeliveryButton = document.getElementById(
+  "courier-delivery-button"
+);
+const typeDelivery = document.querySelector(".delivery__type-delivery");
 const typeDeliveryCard = document.querySelector(".result_delivery-inform");
-let newAddressDelivery = [];
-
+const deliveryButtonPencil = document.querySelector(
+  ".result__main_delivery-text_box-header-button"
+);
 // ===========================================================================  delivery inform main
 const deliveryIinform = document.querySelector(".delivery__inform");
 const deliveryIinformCard = document.querySelector(
   ".result__main_delivery-inform"
 );
+let selectedDelivery = deliveryData.self[0];
 
-function setDeliveryInform() {
-  // ===
+function renderDeliveryInform(data) {
   typeDelivery.innerHTML = `
-  <h3 class="delivery__text">${dataDelivery[0].type}</h3>
+  <h3 class="delivery__text">${data.type}</h3>
   `;
 
   // ============
   deliveryIinform.innerHTML = `
-  <p class="delivery__boxInform_address-textMain">
-  ${dataDelivery[0].street}
+  <p class="delivery__box-inform_address-text-main">
+  ${data.street}
   </p>
-  <p class="delivery__boxInform_address-text">
-  <img src="./icons/star_fill.svg" alt="gold star" /> ${dataDelivery[0].rating}
+  <p class="delivery__box-inform_address-text">
+  <img src="./icons/star_fill.svg" alt="gold star" /> ${data.rating}
   Ежедневно c 10 до 21
   </p>`;
   // ====
   typeDeliveryCard.innerHTML = `
-   <h2 class="result__main_delivery-text_boxHeader-h2">
-   Доставка ${dataDelivery[0].typeCard}
+   <h2 class="result__main_delivery-text_box-header-h2">
+   Доставка ${data.typeCard}
    </h2>`;
   // ====
   deliveryIinformCard.innerHTML = `
   <span class="result__main_delivery-text-p"
-  >${dataDelivery[0].street}</span
+  >${data.street}</span
   >`;
 }
 //  ============================================================================  delivery module self
 function setDeliveryModuleInform() {
   selfDelivery.innerHTML = "";
-  for (let i = 0; i < dataDelivery.length; i++) {
+  for (let i = 0; i < deliveryData.self.length; i++) {
     let div = document.createElement("div");
-    div.classList.add("deliveryModule_boxAddress");
-    div.id = dataDelivery[i].id;
+    div.classList.add("delivery-module_box-address");
+    div.id = deliveryData.self[i].id;
+
+    let inputChecked = "";
+    if (i === 0) {
+      inputChecked = "checked";
+    }
+
     div.innerHTML = `
-    <label class="deliveryModule_boxAddress_label">
+    <label class="delivery-module_box-address_label">
   <input
     type="radio"
-    class="deliveryModule_boxAddress_input"
+    class="delivery-module_box-address_input hide"
     name="radio"
-    id=${dataDelivery[i].id}
+    id=${deliveryData.self[i].id}
+    ${inputChecked}
   />
-  <span class="deliveryModule_boxAddress_span"></span>
-  <p class="deliveryModule_boxAddress_p">
-  ${dataDelivery[i].street}
-    <span class="deliveryModule_boxAddress_p_span"
+  <span class="delivery-module_box-address_span"></span>
+  <p class="delivery-module_boxAddress_p">
+  ${deliveryData.self[i].street}
+    <span class="delivery-module_box-address_p_span"
     ><img src="./icons/star_fill.svg" />
     <span
-    class="deliveryModule_boxAddress_p_rating"
-    >${dataDelivery[i].rating}</span
+    class="delivery-module_box-address_p_rating"
+    >${deliveryData.self[i].rating}</span
     > Пункт выдачи</span
     >
   </p>
 </label>
-<button class="deliveryModule_boxAddress_buttonTrash">
+<button class="delivery-module_box-address_buttonTrash">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
@@ -121,7 +132,7 @@ function setDeliveryModuleInform() {
     viewBox="0 0 20 20"
     fill="none"
     class="icon-trash"
-    id=${dataDelivery[i].id}
+    id=${deliveryData.self[i].id}
   >
     <path
       fill-rule="evenodd"
@@ -152,24 +163,24 @@ function setDeliveryModuleInform() {
 
 function setDeliveryModuleInformCourier() {
   courierDelivery.innerHTML = "";
-  for (let i = 0; i < dataDeliveryCourier.length; i++) {
+  for (let i = 0; i < deliveryData.courier.length; i++) {
     let div = document.createElement("div");
-    div.classList.add("deliveryModule_boxAddress");
-    div.id = dataDeliveryCourier[i].id;
+    div.classList.add("delivery-module_box-address");
+    div.id = deliveryData.courier[i].id;
     div.innerHTML = `
-    <label class="deliveryModule_boxAddress_label">
+    <label class="delivery-module_box-address_label">
   <input
     type="radio"
-    class="deliveryModule_boxAddress_input"
+    class="delivery-module_box-address_input hide"
     name="radio"
-    id=${dataDeliveryCourier[i].id}
+    id=${deliveryData.courier[i].id}
   />
-  <span class="deliveryModule_boxAddress_span"></span>
-  <p class="deliveryModule_boxAddress_p">
-  ${dataDeliveryCourier[i].street}
+  <span class="delivery-module_box-address_span"></span>
+  <p class="delivery-module_box-address_p">
+  ${deliveryData.courier[i].street}
   </p>
   </label>
-  <button class="deliveryModule_boxAddress_buttonTrash">
+  <button class="delivery-module_box-address_buttonTrash">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
@@ -177,7 +188,7 @@ function setDeliveryModuleInformCourier() {
     viewBox="0 0 20 20"
     fill="none"
     class="icon-trash"
-    id=${dataDeliveryCourier[i].id}
+    id=${deliveryData.courier[i].id}
   >
     <path
       fill-rule="evenodd"
@@ -207,132 +218,90 @@ function setDeliveryModuleInformCourier() {
 // =========================================================================== box delivery button
 const deliveryButton = document.querySelector(".delivery__head-button"); //button
 const buttonCloseDelivery = document.querySelector(
-  ".deliveryModule_buttonClose"
-); // button close
+  ".delivery-module_button-close"
+);
 const buttonChooseDelivery = document.querySelector(
-  ".deliveryModule_buttonChoose"
-); //button choose
-const deliveryModule = document.querySelector(".deliveryModule");
+  ".delivery-module_button-choose"
+);
+const deliveryModule = document.querySelector(".delivery-module");
 
 const openDeliveryBox = function () {
-  newAddressDelivery = [];
   forModuleBox.classList.add("block");
-  deliveryModule.classList.remove("deliveryHidden");
+  deliveryModule.classList.remove("hide");
 };
 
 deliveryButton.addEventListener("click", openDeliveryBox);
+deliveryButtonPencil.addEventListener("click", openDeliveryBox);
 
 const closeDeliveryBox = function () {
   forModuleBox.classList.remove("block");
-  deliveryModule.classList.add("deliveryHidden");
-
-  // ===
-  typeDelivery.innerHTML = `
-   <h3 class="delivery__text">${newAddressDelivery[0].type}</h3>
-   `;
-
-  // ============
-  deliveryIinform.innerHTML = `
-   <p class="delivery__boxInform_address-textMain ">
-   ${newAddressDelivery[0].street}
-   </p>
-   <p class="delivery__boxInform_address-text">
-   <img src="./icons/star_fill.svg" alt="gold star" /> ${newAddressDelivery[0].rating}
-   Ежедневно c 10 до 21
-   </p>`;
-  // ====
-  typeDeliveryCard.innerHTML = `
-    <h2 class="result__main_delivery-text_boxHeader-h2">
-    Доставка ${newAddressDelivery[0].typeCard}
-    </h2>`;
-  // ====
-  deliveryIinformCard.innerHTML = `
-   <span class="result__main_delivery-text-p"
-   >${newAddressDelivery[0].street}</span
-   >`;
+  deliveryModule.classList.add("hide");
+  renderDeliveryInform(selectedDelivery);
 };
 
-buttonCloseDelivery.addEventListener("click", closeDeliveryBox);
+function selectDelivery(delivery) {
+  selectedDelivery = delivery;
+}
+
+function chooseDataDelivery(event) {
+  const deliveryId = event.target.closest(".delivery-module_box-address").id;
+  const self = deliveryData.self.find((self) => self.id === deliveryId);
+  if (self) {
+    selectDelivery(self);
+  }
+  const courier = deliveryData.courier.find(
+    (courier) => courier.id === deliveryId
+  );
+  if (courier) {
+    selectDelivery(courier);
+  }
+}
+selfDelivery.addEventListener("click", chooseDataDelivery);
+
+courierDelivery.addEventListener("click", chooseDataDelivery);
+
+buttonCloseDelivery.addEventListener("click", () => {
+  forModuleBox.classList.remove("block");
+  deliveryModule.classList.add("hide");
+});
 buttonChooseDelivery.addEventListener("click", closeDeliveryBox);
-// =========================================================================== box delivery pencil
-const deliveryButtonPencil = document.querySelector(
-  ".result__main_delivery-text_boxHeader-button"
-); //pencil
-
-const openDeliveryBoxPencil = function () {
-  newAddressDelivery = [];
-  forModuleBox.classList.add("block");
-  deliveryModule.classList.remove("deliveryHidden");
-};
-
-deliveryButtonPencil.addEventListener("click", openDeliveryBoxPencil);
 
 // =========================================================================== delivery  choice
 
 selfDeliveryButton.addEventListener("click", () => {
-  courierDelivery.classList.add("courierDelivery_hide");
-  selfDelivery.classList.remove("selfDelivery_hide");
-  selfDeliveryButton.classList.add("activeButton");
-  courierDeliveryButton.classList.remove("activeButton");
+  courierDelivery.classList.toggle("hide");
+  selfDelivery.classList.toggle("hide");
+  selfDeliveryButton.classList.toggle("active-button");
+  courierDeliveryButton.classList.toggle("active-button");
 });
 
 courierDeliveryButton.addEventListener("click", () => {
-  selfDelivery.classList.add("selfDelivery_hide");
-  courierDelivery.classList.remove("courierDelivery_hide");
-  courierDeliveryButton.classList.add("activeButton");
-  selfDeliveryButton.classList.remove("activeButton");
+  selfDelivery.classList.toggle("hide");
+  courierDelivery.classList.toggle("hide");
+  courierDeliveryButton.classList.toggle("active-button");
+  selfDeliveryButton.classList.toggle("active-button");
 });
 
-setDeliveryInform();
-setDeliveryModuleInform();
-setDeliveryModuleInformCourier();
-
-const elemDelivery = document.querySelectorAll(
-  ".deliveryModule_boxAddress_input"
-);
-const elemIdDelivery = elem[0].id;
-if (
-  elemIdDelivery == dataDelivery[0].id ||
-  elemIdDelivery == dataDeliveryCourier[0].id
-) {
-  elemDelivery[0].checked = true;
-}
-
-const newDivDelivery = document.querySelector(".selfDelivery");
-newDivDelivery.addEventListener("click", (event) => {
-  for (let i = 0; i < dataDelivery.length; i++) {
-    if (dataDelivery[i].id === event.target.id) {
-      newAddressDelivery.pop();
-      newAddressDelivery.push(dataDelivery[i]);
-    }
-  }
-});
-const newDivDeliveryCourier = document.querySelector(".courierDelivery");
-
-newDivDeliveryCourier.addEventListener("click", (event) => {
-  for (let i = 0; i < dataDeliveryCourier.length; i++) {
-    if (dataDeliveryCourier[i].id === event.target.id) {
-      newAddressDelivery.pop();
-      newAddressDelivery.push(dataDeliveryCourier[i]);
-    }
-  }
-});
 function DeleteDelivery() {
   const trash = document.querySelectorAll(".icon-trash");
   trash.forEach((btn) => {
     btn.addEventListener("click", () => {
-      let filerData = dataDelivery.filter(({ id }) => {
-        return id !== btn.id;
-      });
-      dataDelivery = filerData;
-      setDeliveryModuleInform();
-    });
-    btn.addEventListener("click", () => {
-      let filerDataCourier = dataDeliveryCourier.filter(({ id }) => {
-        return id !== btn.id;
-      });
-      dataDeliveryCourier = filerDataCourier;
-      setDeliveryModuleInformCourier();
+      const id = btn.id;
+      if (id.startsWith("d")) {
+        deliveryData.self = deliveryData.self.filter((item) => item.id !== id);
+        setDeliveryModuleInform();
+      } else if (id.startsWith("c")) {
+        deliveryData.courier = deliveryData.courier.filter(
+          (item) => item.id !== id
+        );
+        setDeliveryModuleInformCourier();
+      }
     });
   });
 }
+function initialize() {
+  renderDeliveryInform(selectedDelivery);
+  setDeliveryModuleInform();
+  setDeliveryModuleInformCourier();
+}
+initialize();

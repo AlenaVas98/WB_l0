@@ -1,10 +1,8 @@
 /* -------------------          PAYMENT          ----------------*/
 .payment {
   display: flex;
-  padding: 5px 20px 24px 26px;
+  padding: 0px 20px 12px 26px;
   flex-direction: column;
-  width: 84.5rem;
-  height: 10.8rem;
   align-self: stretch;
   border-radius: 16px;
   background: var(--system-white);
@@ -22,8 +20,9 @@
   font-style: normal;
   font-weight: 700;
   line-height: 32px;
-  letter-spacing: 0.4px;
-  margin-top: 14px;
+  letter-spacing: 0.6px;
+  margin-top: 18px;
+  margin-bottom: 17px;
 }
 .payment__head-button {
   color: var(--system-magenta);
@@ -34,81 +33,83 @@
   line-height: 24px;
   background: transparent;
   border: none !important;
-  padding-top: 4px;
+  padding-top: 8px;
+  padding-right: 5px;
 }
-.payment__cardBox {
+.payment__card-box {
   display: grid;
   grid-template-columns: 1fr 4fr 3fr;
   align-items: center;
-  width: 300px;
+  width: 302px;
   margin-bottom: 0;
 }
 
-.payment__cardBox_img {
+.payment__card-box_img {
   display: flex;
-  width: 32px;
+  width: 31px;
   height: 24px;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
   background: var(--system-smoky);
 }
-.payment__cardBox_numberCard,
-.payment__cardBox_dateCard {
-  margin-top: 0;
+.payment__card-box_number-card,
+.payment__card-box_date-card {
+  margin-top: -4px;
   margin-bottom: 0;
   font-size: 15px;
-  letter-spacing: 0.5px;
+  margin-left: 5px;
+  letter-spacing: 0.4px;
 }
-.payment__cardBox_textInform {
+.payment__card-box_text-inform {
   margin-top: 0;
   color: var(--system-grey);
-  font-size: 1.18rem;
+  font-size: 11.8px;
   font-style: normal;
   font-weight: 400;
   line-height: 33px;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.4px;
   grid-column-start: 1;
   grid-column-end: 4;
 }
 @media (max-width: 1024px) {
   .payment {
-    width: 59.5rem;
     gap: 1px;
-    height: 10rem;
   }
   .payment__head-text {
-    margin-top: 10px;
+    margin-top: 23px;
+  }
+  .payment__head-button {
+    margin-top: 7px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .payment {
+    margin-bottom: 0;
+    padding: 11px 11px 13px 17px;
+  }
+  .payment__head-text {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    letter-spacing: 0.9px;
   }
   .payment__head-button {
     margin-top: -4px;
   }
-}
-
-@media (max-width: 320px) {
-  .payment {
-    width: 28.2em;
-    margin-bottom: 0;
-    padding: 5px 20px 24px 17px;
-  }
-  .payment__head-text {
-    width: 200px;
-    font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-  }
-  .payment__head-button {
-    margin-top: 3px;
-  }
-  .payment__cardBox_numberCard,
-  .payment__cardBox_dateCard {
+  .payment__card-box_number-card,
+  .payment__card-box_date-card {
     font-size: 15px;
-    letter-spacing: -0.24px;
+    letter-spacing: 0.3px;
   }
-  .payment__cardBox {
-    grid-template-columns: 43px 149px;
+  .payment__card-box {
+    grid-template-columns: 36px 150px;
   }
-  .payment__cardBox_textInform {
+  .payment__card-box_text-inform {
     font-size: 12px;
+  }
+  .payment__card-box_img {
+    margin-top: -1px;
   }
 }

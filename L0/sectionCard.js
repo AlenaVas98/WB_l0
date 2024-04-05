@@ -25,107 +25,96 @@ const dataCard = [
   },
 ];
 
-//
-const cardButton = document.querySelector(".cardButtonOpen"); //button
-const buttonClose = document.querySelector(".cardModule_buttonClose"); // button close
-const buttonChoose = document.querySelector(".cardModule_buttonChoose"); //button choose
-const cardModule = document.querySelector(".cardModule");
-let cheacked = dataCard[0];
-let newCard = [];
+const cardModule = document.querySelector(".card-module");
+const cardModuleCards = document.querySelector(".card-module_cards");
+const cardBox = document.querySelector(".payment__card-box");
+const cardResult = document.querySelector(
+  ".result__main_payment_box-card_card"
+);
+const cardButton = document.querySelector(".card-button-open");
+const buttonClose = document.querySelector(".card-module_button-close");
+const buttonChoose = document.querySelector(".card-module_button-choose");
+const cardButtonPencil = document.querySelector(
+  ".result__main_payment_box-card-button"
+);
+const inputChecked = document.querySelector(".card-module_box-card_card_input");
+let selectedCard = dataCard[0];
 
-function cardRender() {
+function renderCard(card) {
+  cardBox.innerHTML = `
+  <img src="${card.cardImg}" alt="Card Image" class="payment__card-box_img" />
+  <p class="payment__card-box_number-card">${card.number}</p>
+  <p class="payment__card-box_date-card">${card.date}</p>
+  <p class="payment__card-box_text-inform">Спишем оплату с карты при получении</p>`;
+
+  cardResult.innerHTML = `
+  <img src="${card.cardImg}" alt="Card Image" class="payment__card-box_img" />
+  <p class="result__main_payment_box-card-p">${card.number}</p>`;
+}
+
+function moduleCard() {
   for (let i = 0; i < dataCard.length; i++) {
     let div = document.createElement("div");
-    div.classList.add("cardModule_boxCard_card");
+    div.classList.add("card-module_box-card_card");
     div.id = dataCard[i].id;
-    div.innerHTML = `<label class="cardModule_boxCard_card_label">
-    <input
-      type="radio"
-      class="cardModule_boxCard_card_input"
-      name="radioCard"
-      id=${dataCard[i].id}
-    />
-    <span class="cardModule_boxCard_card_span"></span>
-    <img src=${dataCard[i].cardImg} />
-    <p class="cardModule_boxCard_card_p">${dataCard[i].number}</p>
-  </label> `;
+
+    let inputChecked = "";
+    if (dataCard[i] === selectedCard) {
+      inputChecked = "checked";
+    }
+
+    div.innerHTML = `<label class="card-module_box-card_card_label">
+        <input
+          type="radio"
+          class="card-module_box-card_card_input hide"
+          name="radioCard"
+          id=${dataCard[i].id}
+          ${inputChecked}
+        />
+        <span class="card-module_box-card_card_span"></span>
+        <img src=${dataCard[i].cardImg} />
+        <p class="card-module_box-card_card_p">${dataCard[i].number}</p>
+      </label> `;
     cardModuleCards.appendChild(div);
   }
 }
-// ======================================= create card module
 
-let cardModuleCards = document.querySelector(".cardModule_cards");
-let cardBox = document.querySelector(".payment__cardBox");
-let cardResult = document.querySelector(".result__main_payment_boxCard_card");
-
-function creatCards() {
-  cardBox.innerHTML = `<img src=${dataCard[0].cardImg} alt="mir card" class="payment__cardBox_img" />
-  <p class="payment__cardBox_numberCard">${dataCard[0].number}</p>
-  <p class="payment__cardBox_dateCard">${dataCard[0].date}</p>
-  <p class="payment__cardBox_textInform">
-  Спишем оплату c карты при получении
-  </p>`;
-
-  cardResult.innerHTML = `<img src=${dataCard[0].cardImg} alt="mir card" class="payment__cardBox_img" />
-  <p class="payment__cardBox_numberCard">${dataCard[0].number}</p>`;
+function openCardModule() {
+  cardModule.classList.remove("hide");
+  forModuleBox.classList.add("block");
 }
 
-// =========================================================================== box with card - button
-
-const openCardBox = function () {
-  newCard = [];
-  forModuleBox.classList.add("block");
-  cardModule.classList.remove("cardHidden");
-};
-
-cardButton.addEventListener("click", openCardBox);
-
-const closeCardBox = function () {
+function chooseCardModule() {
+  cardModule.classList.add("hide");
   forModuleBox.classList.remove("block");
-  cardModule.classList.add("cardHidden");
-  cardBox = document.querySelector(
-    ".payment__cardBox"
-  ).innerHTML = `<img src=${newCard[0].cardImg} alt="mir card" class="payment__cardBox_img" />
- <p class="payment__cardBox_numberCard">${newCard[0].number}</p>
-   <p class="payment__cardBox_dateCard">${newCard[0].date}</p>
-   <p class="payment__cardBox_textInform">
- Спишем оплату c карты при получении
-  </p>`;
-  cardResult = document.querySelector(
-    ".result__main_payment_boxCard_card"
-  ).innerHTML = `<img src=${newCard[0].cardImg} alt="mir card" class="payment__cardBox_img" />
-  <p class="payment__cardBox_numberCard">${newCard[0].number}</p>`;
-};
-
-buttonClose.addEventListener("click", closeCardBox);
-buttonChoose.addEventListener("click", closeCardBox);
-
-// =========================================================================== box with card -pencil
-const cardButtonPencil = document.querySelector(".cardButtonPencilOpen"); //pencil
-
-const openCardBoxPencil = function () {
-  newCard = [];
-  forModuleBox.classList.add("block");
-  cardModule.classList.remove("cardHidden");
-};
-
-cardButtonPencil.addEventListener("click", openCardBoxPencil);
-
-cardRender();
-creatCards();
-
-const elem = document.querySelectorAll(".cardModule_boxCard_card_input");
-const elemId = elem[0].id;
-if (elemId == dataCard[0].id) {
-  elem[0].checked = true;
+  renderCard(selectedCard);
 }
 
-let newDiv = document.querySelector(".cardModule_cards");
-newDiv.addEventListener("click", (event) => {
-  for (let i = 0; i < dataCard.length; i++) {
-    if (dataCard[i].id === event.target.id) {
-      newCard.pop();
-      newCard.push(dataCard[i]);
-    }
+function selectCard(card) {
+  selectedCard = card;
+}
+
+function cardModuleClickHandler(event) {
+  const cardId = event.target.closest(".card-module_box-card_card").id;
+  const card = dataCard.find((card) => card.id === cardId);
+  console.log(card);
+  if (card) {
+    selectCard(card);
   }
+}
+
+cardButton.addEventListener("click", openCardModule);
+buttonClose.addEventListener("click", function () {
+  forModuleBox.classList.remove("block");
+  cardModule.classList.add("hide");
 });
+buttonChoose.addEventListener("click", chooseCardModule);
+cardButtonPencil.addEventListener("click", openCardModule);
+cardModuleCards.addEventListener("click", cardModuleClickHandler);
+
+function initialize() {
+  renderCard(selectedCard);
+  moduleCard();
+}
+
+initialize();

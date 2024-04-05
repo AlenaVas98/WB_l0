@@ -10,14 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="stylesheet" href="./styles/header.css" />
-    <link rel="stylesheet" href="./styles/cart.css" />
-    <link rel="stylesheet" href="./styles/outOfStoke.css" />
-    <link rel="stylesheet" href="./styles/wayOfDelivery.css" />
-    <link rel="stylesheet" href="./styles/payment.css" />
-    <link rel="stylesheet" href="./styles/recipient.css" />
-    <link rel="stylesheet" href="./styles/result.css" />
-    <title>Document</title>
+    <title>Товары и Точка</title>
   </head>
   <body class="root">
     <!--             HEAD               -->
@@ -30,18 +23,18 @@
         <img
           src="./icons/vector.svg"
           alt="vector"
-          class="header__vector_imgHide"
+          class="header__vector_img-hide"
         />
         <img
           src="./icons/vector-small.svg"
           alt="vector"
-          class="header__vector_imgMobile"
+          class="header__vector_img-mobile"
         />
       </div>
       <div class="header__logo">
         <h1 class="header__logo-text">Товары и точка</h1>
       </div>
-      <div class="header__input-search header__input-search_inputHide">
+      <div class="header__input-search header__input-search_input-hide">
         <input
           type="search"
           name="searchField"
@@ -56,10 +49,7 @@
           />
         </button>
       </div>
-      <button
-        type="submit"
-        class="header__input-search_button header__input-search_buttonHide"
-      >
+      <button type="submit" class="header__input-search_button-hide">
         <img
           src="./icons/search.svg"
           alt="Поиск"
@@ -74,7 +64,7 @@
         <div class="header__cart">
           <img src="./icons/cart.svg" alt="cart" />
           <p class="header__cart-text">Корзина</p>
-          <div class="header__cart_quantity header__cart_item-label hide"></div>
+          <div class="header__cart_quantity hide"></div>
         </div>
       </div>
     </header>
@@ -84,8 +74,8 @@
 
         <div class="cart">
           <h2 class="cart-header">Корзина</h2>
-          <div class="cart__downBox hide">
-            <p class="cart__downBox_text">0 товаров · 0 сом</p>
+          <div class="cart__down-box hide">
+            <p class="cart__down-box_text">0 товаров · 0 сом</p>
             <button class="btn-close">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -101,16 +91,16 @@
               </svg>
             </button>
           </div>
-          <div class="cart__upBox">
-            <label class="cart__upBox_checkbox">
+          <div class="cart__up-box">
+            <label class="cart__up-box_checkbox">
               <input
                 type="checkbox"
-                class="cart__mainBox_productBox_product_input"
+                class="cart__main-box_input hide"
                 id="chooseAll"
               />
-              <span class="cart__mainBox_productBox_product_checkbox"></span>
+              <span class="cart__main-box_checkbox"></span>
             </label>
-            <p class="cart__upBox_text">Выбрать все</p>
+            <p class="cart__up-box_text">Выбрать все</p>
             <button class="btn-open">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -129,65 +119,64 @@
 
           <hr />
           <!-- ========================================================= -->
-          <div class="cart__mainBox">
+          <div class="cart__main-box">
             <!-- ===========    T-SHIRT    =============       -->
 
-            <div class="cart__mainBox_productBox" id="product1">
-              <div class="cart__mainBox_productBox_product">
-                <div class="cart__mainBox_productBox_product_imgCheckbox">
-                  <label class="cart__mainBox_productBox_product_lable">
+            <div class="cart__main-box_product-box" id="product1">
+              <div class="cart__main-box_product-box_product">
+                <div class="cart__main-box_product-box_product_img-checkbox">
+                  <label class="cart__main-box_product-box_product_lable">
                     <input
                       type="checkbox"
-                      class="cart__mainBox_productBox_product_input checkbox"
+                      class="cart__main-box_input hide checkbox"
                       id="checkbox1"
                     />
                     <span
-                      class="cart__mainBox_productBox_product_checkbox cart__mainBox_productBox_product_checkbox-mobile"
+                      class="cart__main-box_checkbox cart__main-box_checkbox-mobile"
                     ></span>
                   </label>
-                  <div class="cart__mainBox_productBox_product_img">
-                    <img
-                      src="./imgs/t-shirt-color.png"
-                      class="cart__mainBox_productBox_product-img"
-                    />
-                    <div class="cart__mainBox_productBox_img-textMobile">
+                  <div class="cart__main-box_product-box_product_img">
+                    <img src="./imgs/t-shirt-color.svg" class="img-product" />
+                    <div
+                      class="cart__main-box_product-box_img-text-mobile hide"
+                    >
                       56
                     </div>
                   </div>
                 </div>
-                <div>
-                  <h3 class="cart__mainBox_productBox-mainText">
-                    <a href="#" class="cart__mainBox_productBox-mainText-a">
+                <div class="cart__main-box_product-box_inform-product">
+                  <h3 class="cart__main-box_product-box-main-text">
+                    <a href="#" class="cart__main-box_product-box-main-text-a">
                       Футболка UZcotton мужская
                     </a>
                   </h3>
-                  <div class="cart__mainBox_productBox_productText">
-                    <p class="cart__mainBox_productBox-text">Цвет: белый</p>
-                    <p class="cart__mainBox_productBox-text hideSize">
+                  <div class="cart__main-box_product-box_product-text">
+                    <p class="cart__main-box_product-box-text">Цвет: белый</p>
+                    <p class="cart__main-box_product-box-text hideSize">
                       Размер: 56
                     </p>
                   </div>
-                  <div class="cart__mainBox_productBox_product_companyBox">
+                  <div class="cart__main-box_product-box_product_company-box">
                     <span
-                      class="cart__mainBox_productBox_product_companyBox_text"
+                      class="cart__main-box_product-box_product_company-box_text"
                       >Коледино WB</span
                     >
                     <div
-                      class="cart__mainBox_productBox_product_companyBox_text hideText wrapperCircle"
+                      class="cart__main-box_product-box_product_company-box_text hide-text wrapper-circle"
                     >
                       OOO Вайлдберриз
-                      <div class="circleImg" tabindex="0">
+                      <div class="circle-img" tabindex="0">
                         <img
                           src="./icons/exclamation-circle.svg"
                           alt="Информация"
                         />
                       </div>
-                      <div class="circleInform">
-                        <h5 class="circleInform_heading">
+                      <div class="circle-inform">
+                        <h5 class="circle-inform_heading">
                           OOO «МЕГАПРОФСТИЛЬ»
                         </h5>
-                        <p class="circleInform_text">ОГРН: 5167746237148</p>
-                        <p class="circleInform_text">
+                        <p class="circle-inform_text">ОГРН: 5167746237148</p>
+                        <p class="circle-inform_text">
                           129337, Москва, улица Красная Сосна, 2, корпус 1, стр.
                           1, помещение 2, офис 34
                         </p>
@@ -196,34 +185,39 @@
                   </div>
                 </div>
               </div>
-              <div class="cart__mainBox_productBox_icon">
-                <div class="cart__mainBox_productBox_icon_buttonBox-mobile">
-                  <div class="cart__mainBox_productBox_icon_buttonBox">
+              <div class="cart__main-box_product-box_icon">
+                <div class="cart__main-box_product-box_icon_button-box-mobile">
+                  <div class="cart__main-box_product-box_icon_button-box">
                     <button
-                      class="cart__mainBox_productBox_icon_buttonBox_button"
-                      id="minus1"
+                      class="cart__main-box_product-box_icon_button-box_button"
+                      id="minus"
+                      name="p1"
                     >
-                      -
+                      –
                     </button>
                     <input
                       type="text"
-                      class="cart__mainBox_productBox_icon_buttonBox_input"
+                      class="cart__main-box_product-box_icon_button-box_input"
                       id="tShirtCount"
                       value="1"
                       disabled
                     />
                     <button
-                      class="cart__mainBox_productBox_icon_buttonBox_button"
-                      id="plus1"
+                      class="cart__main-box_product-box_icon_button-box_button"
+                      id="plus"
+                      name="p1"
                     >
                       +
                     </button>
                   </div>
-                  <p class="cart__mainBox_productBox_icon_text" id="quantity1">
+                  <p
+                    class="cart__main-box_product-box_icon_text"
+                    id="quantity1"
+                  >
                     Осталось 2 шт.
                   </p>
                 </div>
-                <div class="cart__mainBox_productBox_icon_iconBox">
+                <div class="cart__main-box_product-box_icon_icon-box">
                   <a>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -273,39 +267,35 @@
                   </a>
                 </div>
               </div>
-              <div
-                class="cart__mainBox_productBox_amount cart__mainBox_discontWrapper"
-              >
-                <div class="cart__mainBox_productBox_amount_priceBox">
+              <div class="cart__main-box_product-box_amount">
+                <div
+                  class="cart__main-box_product-box_amount_price-box margin-top-price"
+                >
                   <input
                     type="text"
-                    class="cart__mainBox_productBox_amount-discount margin-top-price"
+                    class="cart__main-box_product-box_amount-discount"
                     id="price1"
                     value="522"
                     contenteditable="true"
                     disabled
                   />
-                  <span class="cart__mainBox_productBox_amount-discount_span">
+                  <span class="cart__main-box_product-box_amount-discount_span">
                     сом</span
                   >
                 </div>
-                <div class="item__sum-discountless">
+                <div class="item__sum-discountless margin-top-price">
                   <span
-                    class="cart__mainBox_productBox_amount-price"
+                    class="cart__main-box_product-box_amount-price"
                     id="discont1"
                     >1051 сом</span
                   >
-                  <div class="discontInform">
-                    <div class="discontInform_text discontInform_box">
-                      <dt class="discontInform_text discontInform_box">
-                        Скидка 55%
-                      </dt>
+                  <div class="discont-inform">
+                    <div class="discont-inform_box">
+                      <dt>Скидка 55%</dt>
                       <dd>−300 сом</dd>
                     </div>
-                    <div class="discontInform_text discontInform_box">
-                      <dt class="discontInform_text discontInform_box">
-                        Скидка покупателя 10%
-                      </dt>
+                    <div class="discont-inform_box">
+                      <dt>Скидка покупателя 10%</dt>
                       <dd>−30 сом</dd>
                     </div>
                   </div>
@@ -315,56 +305,56 @@
 
             <!-- ===========   PHONE CASE    =============       -->
 
-            <div class="cart__mainBox_productBox" id="product2">
-              <div class="cart__mainBox_productBox_product secondBox">
-                <div class="cart__mainBox_productBox_product_imgCheckbox">
-                  <label class="cart__mainBox_productBox_product_lable">
+            <div class="cart__main-box_product-box" id="product2">
+              <div class="cart__main-box_product-box_product second-box">
+                <div class="cart__main-box_product-box_product_img-checkbox">
+                  <label class="cart__main-box_product-box_product_lable">
                     <input
                       type="checkbox"
-                      class="cart__mainBox_productBox_product_input checkbox"
+                      class="cart__main-box_input hide checkbox"
                       id="checkbox2"
                     />
                     <span
-                      class="cart__mainBox_productBox_product_checkbox cart__mainBox_productBox_product_checkbox-mobile"
+                      class="cart__main-box_checkbox cart__main-box_checkbox-mobile"
                     ></span>
                   </label>
-                  <div class="cart__mainBox_productBox_product_img">
-                    <img
-                      src="./imgs/phone-color.png"
-                      class="cart__mainBox_productBox_product-img"
-                    />
+                  <div class="cart__main-box_product-box_product_img">
+                    <img src="./imgs/phone.svg" class="img-product" />
                   </div>
                 </div>
-                <div>
-                  <h3 class="cart__mainBox_productBox-mainText">
-                    <a href="#" class="cart__mainBox_productBox-mainText-a">
+
+                <div class="cart__main-box_product-box_inform-product">
+                  <h3 class="cart__main-box_product-box-main-text">
+                    <a href="#" class="cart__main-box_product-box-main-text-a">
                       Силиконовый чехол картхолдер (отверстия) для карт,
                       прозрачный кейс бампер на Apple iPhone XR, MobiSafe
                     </a>
                   </h3>
-                  <p class="cart__mainBox_productBox-text">Цвет: прозрачный</p>
+                  <p class="cart__main-box_product-box-text">
+                    Цвет: прозрачный
+                  </p>
 
-                  <div class="cart__mainBox_productBox_product_companyBox">
+                  <div class="cart__main-box_product-box_product_company-box">
                     <span
-                      class="cart__mainBox_productBox_product_companyBox_text"
+                      class="cart__main-box_product-box_product_company-box_text"
                       >Коледино WB</span
                     >
                     <div
-                      class="cart__mainBox_productBox_product_companyBox_text hideText wrapperCircle"
+                      class="cart__main-box_product-box_product_company-box_text hide-text wrapper-circle"
                     >
                       OOO Мегапрофстиль
-                      <div class="circleImg" tabindex="0">
+                      <div class="circle-img" tabindex="0">
                         <img
                           src="./icons/exclamation-circle.svg"
                           alt="Информация"
                         />
                       </div>
-                      <div class="circleInform">
-                        <h5 class="circleInform_heading">
+                      <div class="circle-inform">
+                        <h5 class="circle-inform_heading">
                           OOO «МЕГАПРОФСТИЛЬ»
                         </h5>
-                        <p class="circleInform_text">ОГРН: 5167746237148</p>
-                        <p class="circleInform_text">
+                        <p class="circle-inform_text">ОГРН: 5167746237148</p>
+                        <p class="circle-inform_text">
                           129337, Москва, улица Красная Сосна, 2, корпус 1, стр.
                           1, помещение 2, офис 34
                         </p>
@@ -373,34 +363,40 @@
                   </div>
                 </div>
               </div>
-              <div class="cart__mainBox_productBox_icon">
-                <div class="cart__mainBox_productBox_icon_buttonBox-mobile">
-                  <div class="cart__mainBox_productBox_icon_buttonBox">
+              <div class="cart__main-box_product-box_icon">
+                <div class="cart__main-box_product-box_icon_button-box-mobile">
+                  <div class="cart__main-box_product-box_icon_button-box">
                     <button
-                      class="cart__mainBox_productBox_icon_buttonBox_button"
-                      id="minus2"
+                      class="cart__main-box_product-box_icon_button-box_button"
+                      id="minus"
+                      name="p2"
                     >
-                      -
+                      –
                     </button>
                     <input
                       type="text"
-                      class="cart__mainBox_productBox_icon_buttonBox_input"
+                      class="cart__main-box_product-box_icon_button-box_input"
                       id="phoneCount"
                       value="1"
+                      contenteditable="true"
+                      disabled
                     />
                     <button
-                      class="cart__mainBox_productBox_icon_buttonBox_button"
-                      id="plus2"
+                      class="cart__main-box_product-box_icon_button-box_button"
+                      id="plus"
+                      name="p2"
                     >
                       +
                     </button>
                   </div>
                   <p
-                    class="cart__mainBox_productBox_icon_text"
+                    class="cart__main-box_product-box_icon_text"
                     id="quantity2"
                   ></p>
                 </div>
-                <div class="cart__mainBox_productBox_icon_iconBox">
+                <div
+                  class="cart__main-box_product-box_icon_icon-box margin-top-icon"
+                >
                   <a>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -450,37 +446,31 @@
                   </a>
                 </div>
               </div>
-              <div
-                class="cart__mainBox_productBox_amount cart__mainBox_discontWrapper"
-              >
-                <div class="cart__mainBox_productBox_amount_priceBox">
+              <div class="cart__main-box_product-box_amount">
+                <div class="cart__main-box_product-box_amount_price-box">
                   <input
-                    class="cart__mainBox_productBox_amount-discount priceSizeSmall"
+                    class="cart__main-box_product-box_amount-discount price-size-small"
                     id="price2"
                     value="10500"
                     disabled
                   />
-                  <span class="cart__mainBox_productBox_amount-discount_span">
+                  <span class="cart__main-box_product-box_amount-discount_span">
                     сом</span
                   >
                 </div>
                 <div class="item__sum-discountless">
                   <span
-                    class="cart__mainBox_productBox_amount-price"
+                    class="cart__main-box_product-box_amount-price"
                     id="discont2"
                     >11500 сом</span
                   >
-                  <div class="discontInform">
-                    <div class="discontInform_text discontInform_box">
-                      <dt class="discontInform_text discontInform_box">
-                        Скидка 55%
-                      </dt>
+                  <div class="discont-inform">
+                    <div class="discont-inform_box">
+                      <dt>Скидка 55%</dt>
                       <dd>−300 сом</dd>
                     </div>
-                    <div class="discontInform_text discontInform_box">
-                      <dt class="discontInform_text discontInform_box">
-                        Скидка покупателя 10%
-                      </dt>
+                    <div class="discont-inform_box">
+                      <dt>Скидка покупателя 10%</dt>
                       <dd>−30 сом</dd>
                     </div>
                   </div>
@@ -490,56 +480,51 @@
 
             <!-- ===========   PENCILES    =============       -->
 
-            <div class="cart__mainBox_productBox" id="product3">
-              <div class="cart__mainBox_productBox_product">
-                <div class="cart__mainBox_productBox_product_imgCheckbox">
-                  <label class="cart__mainBox_productBox_product_lable">
+            <div class="cart__main-box_product-box" id="product3">
+              <div class="cart__main-box_product-box_product">
+                <div class="cart__main-box_product-box_product_img-checkbox">
+                  <label class="cart__main-box_product-box_product_lable">
                     <input
                       type="checkbox"
-                      class="cart__mainBox_productBox_product_input checkbox"
+                      class="cart__main-box_input hide checkbox"
                       id="checkbox3"
                     />
                     <span
-                      class="cart__mainBox_productBox_product_checkbox cart__mainBox_productBox_product_checkbox-mobile"
+                      class="cart__main-box_checkbox cart__main-box_checkbox-mobile"
                     ></span>
                   </label>
-                  <div class="cart__mainBox_productBox_product_img">
-                    <img
-                      src="./imgs/pencilscolor.png"
-                      class="cart__mainBox_productBox_product-img"
-                    />
+                  <div class="cart__main-box_product-box_product_img">
+                    <img src="./imgs/pencil.svg" class="img-product" />
                   </div>
                 </div>
-                <div>
-                  <h3 class="cart__mainBox_productBox-mainText">
-                    <a href="#" class="cart__mainBox_productBox-mainText-a">
+                <div class="cart__main-box_product-box_inform-product">
+                  <h3 class="cart__main-box_product-box-main-text">
+                    <a href="#" class="cart__main-box_product-box-main-text-a">
                       Карандаши цветные Faber-Castell "Замок", набор 24 цвета,
                       заточенные, шестигранные, Faber-Castell
                     </a>
                   </h3>
-                  <div
-                    class="cart__mainBox_productBox_product_companyBox margin-top"
-                  >
+                  <div class="cart__main-box_product-box_product_company-box">
                     <span
-                      class="cart__mainBox_productBox_product_companyBox_text"
+                      class="cart__main-box_product-box_product_company-box_text"
                       >Коледино WB</span
                     >
                     <div
-                      class="cart__mainBox_productBox_product_companyBox_text hideText wrapperCircle"
+                      class="cart__main-box_product-box_product_company-box_text hide-text wrapper-circle"
                     >
                       OOO Вайлдберриз
-                      <div class="circleImg" tabindex="0">
+                      <div class="circle-img" tabindex="0">
                         <img
                           src="./icons/exclamation-circle.svg"
                           alt="Информация"
                         />
                       </div>
-                      <div class="circleInform">
-                        <h5 class="circleInform_heading">
+                      <div class="circle-inform">
+                        <h5 class="circle-inform_heading">
                           OOO «МЕГАПРОФСТИЛЬ»
                         </h5>
-                        <p class="circleInform_text">ОГРН: 5167746237148</p>
-                        <p class="circleInform_text">
+                        <p class="circle-inform_text">ОГРН: 5167746237148</p>
+                        <p class="circle-inform_text">
                           129337, Москва, улица Красная Сосна, 2, корпус 1, стр.
                           1, помещение 2, офис 34
                         </p>
@@ -549,37 +534,41 @@
                 </div>
               </div>
               <div>
-                <div class="cart__mainBox_productBox_icon">
-                  <div class="cart__mainBox_productBox_icon_buttonBox-mobile">
-                    <div class="cart__mainBox_productBox_icon_buttonBox">
+                <div class="cart__main-box_product-box_icon">
+                  <div
+                    class="cart__main-box_product-box_icon_button-box-mobile"
+                  >
+                    <div class="cart__main-box_product-box_icon_button-box">
                       <button
-                        class="cart__mainBox_productBox_icon_buttonBox_button"
-                        id="minus3"
+                        class="cart__main-box_product-box_icon_button-box_button"
+                        id="minus"
+                        name="p3"
                       >
-                        -
+                        –
                       </button>
                       <input
                         type="text"
-                        class="cart__mainBox_productBox_icon_buttonBox_input"
+                        class="cart__main-box_product-box_icon_button-box_input"
                         id="pencilCount"
                         value="1"
                         disabled
                       />
                       <button
-                        class="cart__mainBox_productBox_icon_buttonBox_button"
-                        id="plus3"
+                        class="cart__main-box_product-box_icon_button-box_button"
+                        id="plus"
+                        name="p3"
                       >
                         +
                       </button>
                     </div>
                     <p
-                      class="cart__mainBox_productBox_icon_text"
+                      class="cart__main-box_product-box_icon_text"
                       id="quantity3"
                     >
                       Осталось 3 шт.
                     </p>
                   </div>
-                  <div class="cart__mainBox_productBox_icon_iconBox">
+                  <div class="cart__main-box_product-box_icon_icon-box">
                     <a>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -630,37 +619,31 @@
                   </div>
                 </div>
               </div>
-              <div
-                class="cart__mainBox_productBox_amount cart__mainBox_discontWrapper"
-              >
-                <div class="cart__mainBox_productBox_amount_priceBox">
+              <div class="cart__main-box_product-box_amount">
+                <div class="cart__main-box_product-box_amount_price-box">
                   <input
-                    class="cart__mainBox_productBox_amount-discount"
+                    class="cart__main-box_product-box_amount-discount"
                     id="price3"
                     value="247"
                     disabled
                   />
-                  <span class="cart__mainBox_productBox_amount-discount_span">
+                  <span class="cart__main-box_product-box_amount-discount_span">
                     сом</span
                   >
                 </div>
                 <div class="item__sum-discountless">
                   <span
-                    class="cart__mainBox_productBox_amount-price"
+                    class="cart__main-box_product-box_amount-price"
                     id="discont3"
                     >475 сом</span
                   >
-                  <div class="discontInform">
-                    <div class="discontInform_text discontInform_box">
-                      <dt class="discontInform_text discontInform_box">
-                        Скидка 55%
-                      </dt>
+                  <div class="discont-inform">
+                    <div class="discont-inform_box">
+                      <dt>Скидка 55%</dt>
                       <dd>−300 сом</dd>
                     </div>
-                    <div class="discontInform_text discontInform_box">
-                      <dt class="discontInform_text discontInform_box">
-                        Скидка покупателя 10%
-                      </dt>
+                    <div class="discont-inform_box">
+                      <dt>Скидка покупателя 10%</dt>
                       <dd>−30 сом</dd>
                     </div>
                   </div>
@@ -672,9 +655,9 @@
 
         <!--             OUT OF STOCK              -->
         <div class="notAvailable">
-          <div class="notAvailable__downBox hide">
-            <p class="notAvailable__downBox_text">Отсутствуют · 3 товара</p>
-            <button class="notAvailable__downBox_btn-open">
+          <div class="notAvailable__down-box hide">
+            <p class="notAvailable__down-box_text">Отсутствуют · 3 товара</p>
+            <button class="notAvailable__down-box_btn-open">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -689,9 +672,9 @@
               </svg>
             </button>
           </div>
-          <div class="notAvailable__upBox">
-            <p class="notAvailable__upBox_text">Отсутствуют · 3 товара</p>
-            <button class="notAvailable__upBox_btn-close">
+          <div class="notAvailable__up-box">
+            <p class="notAvailable__up-box_text">Отсутствуют · 3 товара</p>
+            <button class="notAvailable__up-box_btn-close">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -708,38 +691,43 @@
           </div>
           <hr />
 
-          <div class="notAvailable__mainBox">
-            <div class="notAvailable__mainBox_productBox" id="product4">
-              <div class="notAvailable__mainBox_productBox_product">
-                <div class="notAvailable__mainBox_productBox_img">
+          <div class="notAvailable__main-box">
+            <div class="notAvailable__main-box_product-box" id="product4">
+              <div class="notAvailable__main-box_product-box_product">
+                <div class="notAvailable__main-box_product-box_img">
                   <img
-                    src="./imgs/t-shirt.png"
-                    class="notAvailable__mainBox_productBox_img"
+                    src="./imgs/t-shirt-color.svg"
+                    class="notAvailable__main-box_product-box_img"
                   />
-                  <div class="notAvailable__mainBox_productBox_img-textMobile">
+
+                  <div
+                    class="notAvailable__main-box_product-box_img-text-mobile hide"
+                  >
                     56
                   </div>
                 </div>
-                <div>
-                  <h3 class="notAvailable__mainBox_productBox-mainText">
+                <div class="notAvailable__main-box_product-box_box-text">
+                  <h3
+                    class="notAvailable__main-box_product-box-main-text padding-top-text"
+                  >
                     <a
                       href="#"
-                      class="notAvailable__mainBox_productBox-mainText-a"
+                      class="notAvailable__main-box_product-box-main-text-a"
                     >
                       Футболка UZcotton мужская
                     </a>
                   </h3>
-                  <div class="notAvailable__mainBox_productBox_productText">
-                    <p class="notAvailable__mainBox_productBox-text">
+                  <div class="notAvailable__main-box_product-box_product-text">
+                    <p class="notAvailable__main-box_product-box-text">
                       Цвет: белый
                     </p>
-                    <p class="notAvailable__mainBox_productBox-text hideSize">
+                    <p class="notAvailable__main-box_product-box-text hideSize">
                       Размер: 56
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="notAvailable__mainBox_productBox_icon">
+              <div class="notAvailable__main-box_product-box_icon">
                 <a>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -790,31 +778,31 @@
               </div>
             </div>
 
-            <div class="notAvailable__mainBox_productBox" id="product5">
-              <div class="notAvailable__mainBox_productBox_product">
+            <div class="notAvailable__main-box_product-box" id="product5">
+              <div class="notAvailable__main-box_product-box_product">
                 <img
-                  src="./imgs/phone.png"
-                  class="notAvailable__mainBox_productBox-img notAvailable__mainBox_productBox-img_marginTop"
+                  src="./imgs/phone.svg"
+                  class="notAvailable__main-box_product-box_img margin-top"
                 />
 
-                <div class="secondText">
+                <div class="notAvailable__main-box_productbox_box-text">
                   <h3
-                    class="notAvailable__mainBox_productBox-mainText margin-top"
+                    class="notAvailable__main-box_product-box-main-text margin-top-text-out-of-stoke"
                   >
                     <a
                       href="#"
-                      class="notAvailable__mainBox_productBox-mainText-a"
+                      class="notAvailable__main-box_product-box-main-text-a"
                     >
                       Силиконовый чехол картхолдер (отверстия) для карт,
                       прозрачный кейс бампер на Apple iPhone XR, MobiSafe
                     </a>
                   </h3>
-                  <p class="notAvailable__mainBox_productBox-text">
+                  <p class="notAvailable__main-box_product-box-text">
                     Цвет: прозрачный
                   </p>
                 </div>
               </div>
-              <div class="notAvailable__mainBox_productBox_icon">
+              <div class="notAvailable__main-box_product-box_icon">
                 <a>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -865,28 +853,37 @@
               </div>
             </div>
 
-            <div class="notAvailable__mainBox_productBox" id="product6">
-              <div class="notAvailable__mainBox_productBox_product">
-                <div class="notAvailable__mainBox_productBox_img">
+            <div class="notAvailable__main-box_product-box" id="product6">
+              <div class="notAvailable__main-box_product-box_product">
+                <div class="notAvailable__main-box_product-box_img">
                   <img
-                    src="./imgs/pencils.png"
-                    class="notAvailable__mainBox_productBox_img"
+                    src="./imgs/pencil.svg"
+                    class="notAvailable__main-box_product-box_img margin-top"
                   />
-                  <div class="notAvailable__mainBox_productBox_img-textMobile">
+                  <div
+                    class="notAvailable__main-box_product-box_img-text-mobile hide"
+                  >
                     56/54/52...
                   </div>
                 </div>
-                <h3 class="notAvailable__mainBox_productBox-mainText">
-                  <a
-                    href="#"
-                    class="notAvailable__mainBox_productBox-mainText-a"
+                <div class="notAvailable__main-box_product-box_box-text">
+                  <h3
+                    class="notAvailable__main-box_product-box-main-text margin-top-text-out-of-stoke"
                   >
-                    Карандаши цветные Faber-Castell "Замок", набор 24 цвета,
-                    заточенные, шестигранные, Faber-Castell
-                  </a>
-                </h3>
+                    <a
+                      href="#"
+                      class="notAvailable__main-box_product-box-main-text-a"
+                    >
+                      Карандаши цветные Faber-Castell "Замок", набор 24 цвета,
+                      заточенные, шестигранные, Faber-Castell
+                    </a>
+                  </h3>
+                </div>
               </div>
-              <div class="notAvailable__mainBox_productBox_icon">
+
+              <div
+                class="notAvailable__main-box_product-box_icon padding-top-icon"
+              >
                 <a>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -943,69 +940,68 @@
             <h1 class="delivery__head-text">Способ доставки</h1>
             <button class="delivery__head-button">Изменить</button>
           </div>
-          <div class="delivery__boxInform">
-            <div class="delivery__boxInform_address">
-              <div class="delivery__typeDelivery">
+          <div class="delivery__box-inform">
+            <div class="delivery__box-inform_address">
+              <div class="delivery__type-delivery">
                 <!-- type delivery -->
               </div>
               <div class="delivery__inform">
                 <!-- delivery inform -->
               </div>
             </div>
-            <div class="delivery__boxInform_cost">
+            <div class="delivery__box-inform_cost margin-top-delivery">
               <h3 class="delivery__text">Стоимость доставки</h3>
-              <p class="delivery__boxInform_freeText">Бесплатно</p>
+              <p class="delivery__free-text">Бесплатно</p>
             </div>
-            <div class="delivery__boxInform_data">
-              <h3 class="delivery__text data">5—6 февраля</h3>
-              <div class="delivery__boxInform_data_boxImg">
+            <div class="delivery__box-inform_date">
+              <h3 class="delivery__text date">5—6 февраля</h3>
+              <div class="delivery__box-inform_date_box-img">
                 <img
-                  src="./imgs/t-shirt-color.png"
+                  src="./imgs/t-shirt-color.svg"
                   alt="t-shirt white"
-                  class="delivery__img"
+                  class="img-delivery"
                 />
+
                 <div class="delivery_img">
                   <img
-                    src="./imgs/phone-color.png "
+                    src="./imgs/phone.svg "
                     alt="phone"
-                    class="delivery__img"
+                    class="img-delivery"
                   />
-                  <div class="delivery__boxInform_data-label item-label">
+                  <div class="delivery__box-inform_date-label item-label">
                     184
                   </div>
                 </div>
                 <div class="delivery_img">
                   <img
-                    src="./imgs/pencilscolor.png "
+                    src="./imgs/pencil.svg "
                     alt="phone"
-                    class="delivery__img"
+                    class="img-delivery"
                   />
-                  <div class="delivery__boxInform_data-label item-label">2</div>
+                  <div class="delivery__box-inform_date-label item-label">
+                    2
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="delivery__boxInform_data">
+            <div class="delivery__box-inform_date">
               <h3 class="delivery__text margin-top-text">7—8 февраля</h3>
               <div class="delivery_img margin-top-img">
-                <img
-                  src="./imgs/phone-color.png "
-                  alt="phone"
-                  class="delivery__img"
-                />
-                <div class="delivery__boxInform_data-label item-label">16</div>
+                <img src="./imgs/phone.svg " alt="phone" class="img-delivery" />
+                <div class="delivery__box-inform_date-label item-label">16</div>
               </div>
             </div>
-            <div class="delivery__boxInform_info infom-wrapper">
-              <img src="./icons/price shipping.svg" alt="Обратная доставка" />
-              <div class="delivery__bottomText">
+            <div class="delivery__box-inform_info infom-wrapper">
+              <img src="./icons/priceShipping.svg" alt="Обратная доставка" />
+              <div class="delivery__bottom-text">
                 Обратная доставка товаров на склад при отказе —
                 <span
-                  class="delivery__boxInform-greenText informText"
+                  class="delivery__box-inform-green-text inform-text"
                   tabindex="0"
                   >бесплатно</span
                 >
-                <div class="hideInform">
-                  <p class="hideInform_text">
+                <div class="hide-inform">
+                  <p class="hide-inform_text">
                     Если товары вам не подойдут, мы вернем их обратно на склад —
                     это бесплатно
                   </p>
@@ -1019,11 +1015,11 @@
         <div class="payment">
           <div class="payment__head">
             <h1 class="payment__head-text">Способ оплаты</h1>
-            <button class="payment__head-button cardButtonOpen">
+            <button class="payment__head-button card-button-open">
               Изменить
             </button>
           </div>
-          <div class="payment__cardBox"></div>
+          <div class="payment__card-box"></div>
         </div>
         <!--               RECIPIENT             -->
         <div class="recipient" id="formRecipent">
@@ -1033,20 +1029,20 @@
           <!--    Name and Surname    -->
           <form action="" id="form" class="recipient__form">
             <div class="recipient__formNameSurname">
-              <div class="recipient__form_inputBox">
+              <div class="recipient__form_input-box">
                 <input
                   type="text"
                   name="firstName"
                   id="firstName"
-                  class="recipient__formNameSurname recipient-input inputName"
+                  class="recipient__formNameSurname recipient-input"
                   required
                 />
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <span class="errorName">Укажите имя</span>
-                <label class="recipient__form_inputBox-label">Имя</label>
+                <span class="error-name hide">Укажите имя</span>
+                <label class="recipient__form_input-box-label">Имя</label>
               </div>
-              <div class="recipient__form_inputBox">
+              <div class="recipient__form_input-box">
                 <input
                   type="text"
                   name="surname"
@@ -1056,59 +1052,59 @@
                 />
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <span class="errorSurname">Укажите фамилию</span>
-                <label class="recipient__form_inputBox-label">Фамилия</label>
+                <span class="error-surname hide">Укажите фамилию</span>
+                <label class="recipient__form_input-box-label">Фамилия</label>
               </div>
             </div>
             <!--    Email Phone and Inn    -->
-            <div class="recipient__formAnotherInform">
+            <div class="recipient__form-another-inform">
               <div
-                class="recipient__form_inputBox recipient__formAnotherInform-box"
+                class="recipient__form_input-box recipient__form-another-inform-box"
               >
                 <input
                   type="text"
                   name="email"
                   id="email"
-                  class="recipient__form_inputBox-input recipient-input"
+                  class="recipient__form_input-box-input recipient-input"
                   required
                 />
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <span class="errorEmail"
+                <span class="error-email hide"
                   >Проверьте адрес электронной почты</span
                 >
-                <label class="recipient__form_inputBox-label">Почта</label>
+                <label class="recipient__form_input-box-label">Почта</label>
               </div>
               <div
-                class="recipient__form_inputBox recipient__formAnotherInform-box"
+                class="recipient__form_input-box recipient__form-another-inform-box margin-bottom"
               >
                 <input
                   type="tel"
                   name="phone"
                   id="phone"
-                  class="recipient__form_inputBox-input recipient-input"
+                  class="recipient__form_input-box-input recipient-input"
                   data-phone-pattern
                   required
                 />
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <span class="errorPhone">Формат: +9 999 999 99 99</span>
-                <label class="recipient__form_inputBox-label">Телефон</label>
+                <span class="error-phone hide">Формат: +9 999 999 99 99</span>
+                <label class="recipient__form_input-box-label">Телефон</label>
               </div>
               <div
-                class="recipient__form_inputBox recipient__formAnotherInform-box"
+                class="recipient__form_input-box recipient__form-another-inform-box margin-bottom"
               >
                 <input
                   type="number"
                   name="inn"
                   id="inn"
-                  class="recipient__form_inputBox-input recipient-input"
+                  class="recipient__form_input-box-input recipient-input"
                   required
                 />
                 <span class="highlight"></span>
                 <span class="bar">Для таможенного оформления</span>
-                <span class="errorInn">Проверте ИНН</span>
-                <label class="recipient__form_inputBox-label">ИНН</label>
+                <span class="error-inn hide">Проверте ИНН</span>
+                <label class="recipient__form_input-box-label">ИНН</label>
               </div>
             </div>
           </form>
@@ -1117,7 +1113,7 @@
       <!--            RESULT            -->
       <div class="result">
         <div class="result__main">
-          <div class="result__main_boxPrice">
+          <div class="result__main_box-price">
             <div class="result__main_header">
               <h2 class="result__main_header-h2">Итогo</h2>
               <h3 class="result__main_header-h3">
@@ -1155,32 +1151,32 @@
           </div>
           <div class="result__main_delivery">
             <div class="result__main_delivery-text">
-              <div class="result__main_delivery-text_boxHeader">
+              <div class="result__main_delivery-text_box-header">
                 <!-- type delivery card -->
                 <div class="result_delivery-inform">
-                  <h2 class="result__main_delivery-text_boxHeader-h2">
+                  <h2 class="result__main_delivery-text_box-header-h2">
                     Доставка в пункт выдачи
                   </h2>
                 </div>
-                <button class="result__main_delivery-text_boxHeader-button">
+                <button class="result__main_delivery-text_box-header-button">
                   <img src="./icons/penPink.svg" />
                 </button>
               </div>
               <div class="result__main_delivery-inform">
                 <!-- delivery inform card -->
               </div>
-              <span class="result__main_delivery-text-Pink">5–8 фев</span>
+              <span class="result__main_delivery-text-Pink">5—8 фев</span>
             </div>
-            <div class="result__main_delivery-ok infom-wrapper">
-              <img src="./icons/price shipping.svg" />
-              <p class="result__main_delivery-ok-p informText">
+            <div class="result__main_delivery-ok">
+              <img src="./icons/priceShipping.svg" />
+              <p class="result__main_delivery-ok-p inform-text">
                 Обратная доставка товаров на склад при отказе —
                 <span class="result__main_delivery-ok-green" tabindex="0"
                   >бесплатно</span
                 >
               </p>
-              <div class="hideInformCart">
-                <p class="hideInformCart_text">
+              <div class="hide-inform-cart">
+                <p class="hide-inform-cart_text">
                   Если товары вам не подойдут, мы вернем их обратно на склад —
                   это бесплатно
                 </p>
@@ -1188,55 +1184,53 @@
             </div>
           </div>
           <div class="result__main_payment">
-            <div class="result__main_payment_boxCard">
-              <div class="result__main_payment_boxCard_head">
-                <h2 class="result__main_payment_boxCard_head_h2">
+            <div class="result__main_payment_box-card">
+              <div class="result__main_payment_box-card_head">
+                <h2 class="result__main_payment_box-card_head_h2">
                   Оплата картой
                 </h2>
-                <button
-                  class="result__main_payment_boxCard-button cardButtonPencilOpen"
-                >
+                <button class="result__main_payment_box-card-button">
                   <img src="./icons/penPink.svg" />
                 </button>
               </div>
-              <div class="result__main_payment_boxCard_card">
+              <div class="result__main_payment_box-card_card">
                 <!-- card -->
               </div>
             </div>
-            <div class="result__main_payment_boxConfirm">
-              <div class="result__main_payment_boxConfirm_inform">
-                <label class="result__main_payment_boxConfirm_inform-lable">
+            <div class="result__main_payment_box-confirm">
+              <div class="result__main_payment_box-confirm_inform">
+                <label class="result__main_payment_box-confirm_inform-lable">
                   <input
                     type="checkbox"
-                    class="result__main_payment_boxConfirm_inform-input"
+                    class="result__main_payment_box-confirm_inform-input"
                   />
                   <span
-                    class="result__main_payment_boxConfirm_inform-span"
+                    class="result__main_payment_box-confirm_inform-span"
                   ></span>
                   Списать оплату сразу
                 </label>
               </div>
-              <p class="result__main_payment_boxConfirm-p">
+              <p class="result__main_payment_box-confirm-p">
                 Спишем оплату c карты при получении
               </p>
             </div>
           </div>
         </div>
-        <div class="result_boxButton">
-          <button class="result_boxButton_button" type="submit" form="form">
+        <div class="result_box-button">
+          <button class="result_box-button_button" type="submit" form="form">
             Заказать
           </button>
-          <div class="result_boxButton_boxInform">
+          <div class="result_box-button_box-inform">
             <img
-              src="./icons/Frame 277132151.svg"
-              class="result_boxButton_boxInform_icon"
+              src="./icons/tick.svg"
+              class="result_box-button_box-inform_icon"
             />
-            <p class="result_boxButton_boxInform_p">
+            <p class="result_box-button_box-inform_p">
               Соглашаюсь
-              <span class="result_boxButton_boxInform_span"
+              <span class="result_box-button_box-inform_span"
                 >с правилами пользования торговой площадкой</span
               >
-              и <span class="result_boxButton_boxInform_span">возврата</span>
+              и <span class="result_box-button_box-inform_span">возврата</span>
             </p>
           </div>
         </div>
@@ -1246,38 +1240,35 @@
     <footer class="footer">
       <span class="footer-span">© 2022 ООО «Товары и точка»</span>
     </footer>
-    <div class="mobileMenu">
-      <img src="./icons/main.svg" alt="home icon" class="mobileMenu-icon" />
-      <img src="./icons/catalog.svg" alt="search" class="mobileMenu-icon" />
-      <div class="mobileMenu_cart">
+    <div class="mobile-menu">
+      <img src="./icons/main.svg" alt="home icon" class="mobile-menu-icon" />
+      <img src="./icons/catalog.svg" alt="search" class="mobile-menu-icon" />
+      <div class="mobile-menu_cart">
         <img
           src="./icons/cartPink.svg"
           alt="cart icon"
-          class="mobileMenu-icon"
+          class="mobile-menu-icon"
         />
-        <div
-          class="mobileMenu-icon_quantity mobileMenu-icon_item-label hide"
-          id="quantityCardMobile"
-        >
+        <div class="mobile-menu-icon_item-label hide" id="quantityCardMobile">
           0
         </div>
       </div>
       <img
         src="./icons/favorites.svg"
         alt="heart icon"
-        class="mobileMenu-icon"
+        class="mobile-menu-icon"
       />
       <img
         src="./icons/profile.svg"
         alt="person icon"
-        class="mobileMenu-icon"
+        class="mobile-menu-icon"
       />
     </div>
     <!--            BOX CARD MODULE           -->
-    <div class="cardModule cardHidden">
-      <div class="cardModule_heading">
+    <div class="card-module hide">
+      <div class="card-module_heading">
         <h2>Способ оплаты</h2>
-        <button class="cardModule_buttonClose">
+        <button class="card-module_button-close">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -1294,17 +1285,17 @@
           </svg>
         </button>
       </div>
-      <div class="cardModule_cards">
+      <div class="card-module_cards">
         <!-- card module js -->
       </div>
 
-      <button class="cardModule_buttonChoose">Выбрать</button>
+      <button class="card-module_button-choose">Выбрать</button>
     </div>
     <!--          BOX WAY OF DELIVERY MODULE          -->
-    <div class="deliveryModule deliveryHidden">
-      <div class="deliveryModule_heading">
+    <div class="delivery-module hide">
+      <div class="delivery-module_heading">
         <h2>Способ доставки</h2>
-        <button class="deliveryModule_buttonClose">
+        <button class="delivery-module_button-close">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -1321,25 +1312,29 @@
           </svg>
         </button>
       </div>
-      <div class="deliveryModule_ButtonBox">
+      <div class="delivery-module_button-box">
         <button
-          class="deliveryModule_ButtonBox_button selfDeliveryButton activeButton"
+          class="delivery-module_button-box_button active-button"
+          id="self-delivery-button"
         >
           В пункт выдачи
         </button>
-        <button class="deliveryModule_ButtonBox_button courierDeliveryButton">
+        <button
+          class="delivery-module_button-box_button"
+          id="courier-delivery-button"
+        >
           Курьером
         </button>
       </div>
-      <p class="deliveryModule__p">Мои адреса</p>
+      <p class="delivery-module__p">Мои адреса</p>
 
       <div class="selfDelivery">
         <!-- delivery inform module self -->
       </div>
-      <div class="courierDelivery courierDelivery_hide">
+      <div class="courierDelivery hide">
         <!-- delivery inform module courier -->
       </div>
-      <button class="deliveryModule_buttonChoose">Выбрать</button>
+      <button class="delivery-module_button-choose">Выбрать</button>
     </div>
     <script src="./form.js"></script>
     <script src="./index.js"></script>

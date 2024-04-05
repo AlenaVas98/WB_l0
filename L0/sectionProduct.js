@@ -1,3 +1,23 @@
+const tshirtCount = document.getElementById("tShirtCount");
+const phoneCount = document.getElementById("phoneCount");
+const pencilCount = document.getElementById("pencilCount");
+
+const quantityTshirt = document.getElementById("quantity1");
+const quantityPhone = document.getElementById("quantity2");
+const quantityPencils = document.getElementById("quantity3");
+
+const tshirtPrice = document.getElementById("price1");
+const phonePrice = document.getElementById("price2");
+const pencilPrice = document.getElementById("price3");
+
+const deliveryTshirt = document.getElementById("delivery-tshirt");
+
+const totalDiscounts = {
+  tshirt: 1051,
+  phone: 11500,
+  pencil: 475,
+};
+
 let dataProduct = [
   {
     id: "p1",
@@ -9,6 +29,9 @@ let dataProduct = [
     quantityCart: 1,
     totalDiscount: 1051,
     discount: 1051,
+    countProduct: +tshirtCount.value,
+    productPrice: +tshirtPrice.value,
+    quantityProduct: quantityTshirt,
   },
   {
     id: "p2",
@@ -19,6 +42,9 @@ let dataProduct = [
     quantityCart: 1,
     totalDiscount: 11500,
     discount: 11500,
+    countProduct: +phoneCount.value,
+    productPrice: +phonePrice.value,
+    quantityProduct: quantityPhone,
   },
   {
     id: "p3",
@@ -30,6 +56,9 @@ let dataProduct = [
     quantityCart: 1,
     totalDiscount: 475,
     discount: 475,
+    countProduct: +pencilCount.value,
+    productPrice: +pencilPrice.value,
+    quantityProduct: quantityPencils,
   },
 ];
 
@@ -49,43 +78,34 @@ const itemChange = (num) => {
 };
 
 let dataCart = [];
-const cart = document.querySelector(".cart__mainBox");
-const cartDownBox = document.querySelector(".cart__downBox");
-const cartUpBox = document.querySelector(".cart__upBox");
+const cart = document.querySelector(".cart__main-box");
+const cartDownBox = document.querySelector(".cart__down-box");
+const cartUpBox = document.querySelector(".cart__up-box");
 const openBtn = document.querySelector(".btn-open");
 const closeBtn = document.querySelector(".btn-close");
 const cartQuantity = document.querySelector(".header__cart_quantity");
-const totalQuantityHide = document.querySelector(".cart__downBox_text");
+const totalQuantityHide = document.querySelector(".cart__down-box_text");
 const totalQuantityResult = document.querySelector(
   ".result__main_price-text-p"
 );
-const outOfStokeQuantity = document.querySelector(".notAvailable__upBox_text");
+const outOfStokeQuantity = document.querySelector(".notAvailable__up-box_text");
+const outOfStokeQuantityDown = document.querySelector(
+  ".notAvailable__down-box_text"
+);
 const totalAmountResult = document.querySelector(".result__main_header-h3");
 const checkboxPrice = document.querySelector(
-  ".result__main_payment_boxConfirm_inform-input"
+  ".result__main_payment_box-confirm_inform-input"
 );
 const totalAmountWithoutDiscount = document.getElementById("totalAmount");
 const totalDiscountCard = document.getElementById("totalDiscount");
-const buttonOrder = document.querySelector(".result_boxButton_button");
+const buttonOrder = document.querySelector(".result_box-button_button");
 const quantityCardMobile = document.getElementById("quantityCardMobile");
 const chooseAll = document.getElementById("chooseAll");
 const checkboxAll = document.querySelectorAll(".checkbox");
-// counter
-const tshirtCount = document.getElementById("tShirtCount");
-const phoneCount = document.getElementById("phoneCount");
-const pencilCount = document.getElementById("pencilCount");
-//price
-const tshirtPrice = document.getElementById("price1");
-const phonePrice = document.getElementById("price2");
-const pencilPrice = document.getElementById("price3");
-//discount
 const discountTshirt = document.getElementById("discont1");
 const discountPhone = document.getElementById("discont2");
 const discountPencil = document.getElementById("discont3");
 
-const quantityTshirt = document.getElementById("quantity1");
-const quantityPhone = document.getElementById("quantity2");
-const quantityPencils = document.getElementById("quantity3");
 const iconshHeart = document.querySelectorAll(".icon-heart");
 iconshHeart.forEach((icon) => {
   icon.addEventListener("click", () => {
@@ -93,127 +113,69 @@ iconshHeart.forEach((icon) => {
   });
 });
 
-let valueTShirt = +tshirtCount.value;
-let priceTshirt = +tshirtPrice.value;
-
-let valuePhone = +phoneCount.value;
-let pricePhone = +phonePrice.value;
-
-let valuePencil = pencilCount.value;
-let pricePencil = +pencilPrice.value;
-
 let totalQuantity = 0;
 let totalAmount = 0;
 let totalAmountWithoutDiscountCard = 0;
 let totalDiscount = 0;
 let outOfStokeCounter = 3;
 
-let totalAmountTshirt = 1051;
-let totalAmountPhone = 11500;
-let totalAmountPencil = 475;
-
 function counterProduct() {
   const btn = document.querySelectorAll(
-    ".cart__mainBox_productBox_icon_buttonBox_button"
+    ".cart__main-box_product-box_icon_button-box_button"
   );
-
   btn.forEach((btn) => {
+    let name = btn.name;
+    let action = btn.id;
     btn.addEventListener("click", () => {
-      dataProduct.map((product) => {
-        //  ============= tshirt counter
-        if (btn.id === "minus1" && product.id === "p1") {
-          valueTShirt--;
-          priceTshirt -= product.price;
-          quantityTshirt.innerHTML = `Осталось ${++product.outOfStoke} шт.`;
-          product.quantityCart = +valueTShirt;
-          product.totalPrice = priceTshirt;
-          product.totalDiscount -= product.discount;
-          totalAmountTshirt -= product.discount;
-        } else if (btn.id === "plus1" && product.id === "p1") {
-          valueTShirt++;
-          priceTshirt += product.price;
-          quantityTshirt.innerHTML = `Осталось ${--product.outOfStoke} шт.`;
-          product.quantityCart = +valueTShirt;
-          product.totalPrice = priceTshirt;
-          product.totalDiscount += product.discount;
-          totalAmountTshirt += product.discount;
-        }
-        if (valueTShirt == 0) {
-          document.getElementById("minus1").disabled = true;
-        } else {
-          document.getElementById("minus1").disabled = false;
-        }
+      const product = dataProduct.find((item) => item.id === name);
+      if (!product) return;
 
-        if (valueTShirt === 3) {
-          //проверить
-          document.getElementById("plus1").disabled = true;
-          quantityTshirt.innerHTML = ``;
-        } else {
-          document.getElementById("plus1").disabled = false;
+      if (action === "minus") {
+        product.countProduct--;
+        product.productPrice -= product.price;
+        if (product.id === "p1" || product.id === "p3") {
+          product.quantityProduct.innerHTML = `Осталось ${++product.outOfStoke} шт.`;
         }
-
-        tshirtCount.value = valueTShirt;
-        tshirtPrice.value = priceTshirt;
-
-        //  ============= phone counter
-        if (btn.id === "minus2" && product.id === "p2") {
-          valuePhone--;
-          pricePhone -= product.price;
-          product.quantityCart = valuePhone;
-          product.totalPrice = pricePhone;
-
-          product.totalDiscount -= product.discount;
-
-          totalAmountPhone -= product.discount;
-        } else if (btn.id === "plus2" && product.id === "p2") {
-          valuePhone++;
-          pricePhone += product.price;
-          product.quantityCart = valuePhone;
-          product.totalPrice = pricePhone;
-          product.totalDiscount += product.discount;
-          totalAmountPhone += product.discount;
+        product.quantityCart = product.countProduct;
+        product.totalPrice = product.productPrice;
+        product.totalDiscount -= product.discount;
+      } else if (action === "plus") {
+        product.countProduct++;
+        product.productPrice += product.price;
+        if (product.id === "p1" || product.id === "p3") {
+          product.quantityProduct.innerHTML = `Осталось ${--product.outOfStoke} шт.`;
         }
-        if (valuePhone == 0) {
-          document.getElementById("minus2").disabled = true;
-        } else {
-          document.getElementById("minus2").disabled = false;
-        }
-        phoneCount.value = valuePhone;
-        phonePrice.value = pricePhone;
-        //  ============= pencil counter
-        if (btn.id === "minus3" && product.id === "p3") {
-          valuePencil--;
-          pricePencil -= product.price;
-          quantityPencils.innerHTML = `Осталось ${++product.outOfStoke} шт.`;
-          product.quantityCart = valuePencil;
-          product.totalPrice = pricePencil;
-          product.totalDiscount -= product.discount;
-          totalAmountPencil -= product.discount;
-        } else if (btn.id === "plus3" && product.id === "p3") {
-          valuePencil++;
-          pricePencil += product.price;
-          quantityPencils.innerHTML = `Осталось ${--product.outOfStoke} шт.`;
-          product.quantityCart = valuePencil;
-          product.totalPrice = pricePencil;
-          product.totalDiscount += product.discount;
-          totalAmountPencil += product.discount;
-        }
+        product.quantityCart = product.countProduct;
+        product.totalPrice = product.productPrice;
+        product.totalDiscount += product.discount;
+      }
+      if (product.countProduct == 0) {
+        document.getElementsByName(`${name}`)[0].disabled = true;
+      } else {
+        document.getElementsByName(`${name}`)[0].disabled = false;
+      }
 
-        if (valuePencil == 0) {
-          document.getElementById("minus3").disabled = true;
-        } else {
-          document.getElementById("minus3").disabled = false;
-        }
-        if (valuePencil == product.quantity) {
-          document.getElementById("plus3").disabled = true;
-          quantityPencils.innerHTML = ``;
-        } else {
-          document.getElementById("plus3").disabled = false;
-        }
-
-        pencilCount.value = valuePencil;
-        pencilPrice.value = pricePencil;
-      });
+      if (product.countProduct === product.quantity) {
+        document.getElementsByName(`${name}`)[1].disabled = true;
+        product.quantityProduct.innerHTML = ``;
+      } else {
+        document.getElementsByName(`${name}`)[1].disabled = false;
+      }
+      if (product.id === "p1") {
+        tshirtCount.value = product.countProduct;
+        tshirtPrice.value = product.productPrice;
+        totalDiscounts.tshirt = product.totalDiscount;
+      }
+      if (product.id === "p2") {
+        phoneCount.value = product.countProduct;
+        phonePrice.value = product.productPrice;
+        totalDiscounts.phone = product.totalDiscount;
+      }
+      if (product.id === "p3") {
+        pencilCount.value = product.countProduct;
+        pencilPrice.value = product.productPrice;
+        totalDiscounts.pencil = product.totalDiscount;
+      }
 
       if (document.getElementById("checkbox1").checked) {
         addToCartCheck();
@@ -224,7 +186,6 @@ function counterProduct() {
       if (document.getElementById("checkbox3").checked) {
         addToCartCheck();
       }
-
       updateHTMLData();
     });
   });
@@ -247,11 +208,11 @@ function updateHTMLData() {
     totalQuantity
   )}`;
   totalAmountResult.innerHTML = `${totalAmount} <span class="result__main_header-h3-span">сом</span>`;
-  discountTshirt.textContent = `${totalAmountTshirt} сом`;
-  discountPhone.textContent = `${totalAmountPhone} сом`;
-  discountPencil.textContent = `${totalAmountPencil} сом`;
+  discountTshirt.textContent = `${totalDiscounts.tshirt} сом`;
+  discountPhone.textContent = `${totalDiscounts.phone} сом`;
+  discountPencil.textContent = `${totalDiscounts.pencil} сом`;
   totalAmountWithoutDiscount.textContent = `${totalAmountWithoutDiscountCard} сом`;
-  totalDiscountCard.textContent = `${totalDiscount} сом`;
+  totalDiscountCard.textContent = `- ${totalDiscount} сом`;
   if (checkboxPrice.checked) {
     buttonOrder.textContent = `Оплатить ${totalAmount} сом`;
   }
@@ -293,6 +254,7 @@ function DeleteProduct() {
         --outOfStokeCounter;
       }
       outOfStokeQuantity.textContent = `Отсутствуют · ${outOfStokeCounter} товара`;
+      outOfStokeQuantityDown.textContent = `Отсутствуют · ${outOfStokeCounter} товара`;
     });
   });
 }
@@ -378,7 +340,6 @@ function addToCartCheck(index) {
     prev += product.totalDiscount - product.totalPrice;
     return prev;
   }, 0);
-  console.log(dataCart);
   updateHTMLData();
 }
 
@@ -396,7 +357,6 @@ function updateCart(index, chooseAll) {
     totalAmount = dataCart.reduce((prev, product) => {
       return prev + product.totalPrice;
     }, 0);
-    console.log(dataCart);
     totalAmountWithoutDiscountCard = dataCart.reduce((prev, product) => {
       return prev + product.totalDiscount;
     }, 0);
@@ -410,7 +370,6 @@ function updateCart(index, chooseAll) {
     chooseAll === "chooseAll" &&
     document.getElementById(chooseAll).checked == false
   ) {
-    console.log("wrw");
     dataCart = [];
     totalQuantity = 0;
   }

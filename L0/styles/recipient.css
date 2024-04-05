@@ -1,7 +1,5 @@
 .recipient {
   display: flex;
-  width: 86.1rem;
-  height: 21rem;
   padding: 0px 6px 2px 25px;
   flex-direction: column;
   align-items: flex-start;
@@ -14,28 +12,30 @@
   margin-bottom: 6px;
   font-size: 24px;
   font-weight: 700;
+  margin-top: 19px;
 }
 .recipient__text {
   font-size: 22px;
   line-height: 32px;
   letter-spacing: -0.24px;
 }
+.recipient__form {
+  width: 100%;
+}
 
+.recipient__form-another-inform {
+  display: flex;
+  gap: 18px;
+}
 .recipient__formNameSurname {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
+  display: grid;
+  width: 95%;
+  grid-template-columns: 44% 44%;
 }
-.recipient__formAnotherInform {
-  display: flex;
-  align-content: space-between;
-  gap: 5px;
-}
-
 /* ============ INPUT BOX ============ */
-.recipient__form_inputBox {
+.recipient__form_input-box {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 27px;
 }
 .recipient-input {
   font-size: 18px;
@@ -46,17 +46,9 @@
 .recipient-input:focus {
   outline: none;
 }
-.recipient__formNameSurname {
-  width: 33rem;
-}
-.recipient__form_inputBox-input {
-  width: 21rem;
-}
-.recipient__formAnotherInform-box {
-  width: 23.8rem;
-}
+
 /* ============ LABEL ============ */
-.recipient__form_inputBox-label {
+.recipient__form_input-box-label {
   color: var(--system-grey);
   font-size: 16px;
   font-weight: normal;
@@ -68,8 +60,8 @@
   -webkit-transition: 0.2s ease all;
 }
 
-.recipient-input:focus ~ .recipient__form_inputBox-label,
-.recipient-input:valid ~ .recipient__form_inputBox-label {
+.recipient-input:focus ~ .recipient__form_input-box-label,
+.recipient-input:valid ~ .recipient__form_input-box-label {
   top: -24px;
   font-size: 13px;
 }
@@ -77,7 +69,6 @@
 .bar {
   position: relative;
   display: block;
-  width: 338px;
   font-size: 11px;
   font-style: normal;
   font-weight: 400;
@@ -102,7 +93,6 @@
 .highlight {
   position: absolute;
   height: 50%;
-  width: 100px;
   top: 10%;
   left: 0;
   pointer-events: none;
@@ -110,13 +100,7 @@
 }
 
 /* ============ ERROR ============ */
-.errorName,
-.errorSurname,
-.errorEmail,
-.errorPhone,
-.errorInn {
-  display: none;
-}
+
 .error {
   display: inline-block;
   position: absolute;
@@ -132,9 +116,7 @@
 }
 @media (max-width: 1024px) {
   .recipient {
-    width: 61rem;
-    height: 223px;
-    gap: 15px;
+    gap: 11px;
   }
   .recipient__heading {
     font-size: 24px;
@@ -142,61 +124,69 @@
   }
 
   .recipient__formNameSurname:not(:last-of-type),
-  .recipient__formAnotherInform:not(:last-of-type) {
+  .recipient__form-another-inform:not(:last-of-type) {
     margin-bottom: -3px;
-  }
-  .recipient__formNameSurname {
-    width: 279px;
-  }
-  .recipient__form_inputBox {
-    width: 285px;
-  }
-
-  .recipient__formAnotherInform-box {
-    width: 200px;
-  }
-  .recipient__form_inputBox-input {
-    width: 176px;
   }
   .bar {
     font-size: 11.5px;
     line-height: 19px;
   }
+  .recipient__formNameSurname {
+    display: grid;
+    width: 92%;
+    grid-template-columns: 54% 54%;
+  }
+  .recipient__form-another-inform {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-right: 30px;
+    gap: 29px;
+    padding-top: 5px;
+  }
+  .recipient__form_input-box-input {
+    width: 100%;
+  }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 1000px) {
   .recipient {
     margin: 0px 2.7px;
-    margin-bottom: 8px;
-    padding: 0 10px;
-    width: 29.4em;
-    height: 391px;
+    padding: 0 12px;
     padding-top: 15px;
+    margin-bottom: -9px;
   }
-
+  .recipient__form_input-box {
+    margin-bottom: 30px;
+  }
   .recipient__heading {
-    margin-bottom: -8px;
-    margin-top: -5px;
+    margin-bottom: -4px;
+    margin-top: 4px;
     font-size: 20px;
   }
 
   .recipient__formNameSurname,
-  .recipient__formAnotherInform {
-    gap: 8px;
-  }
-  .recipient__formNameSurname,
-  .recipient__formAnotherInform {
+  .recipient__form-another-inform {
+    gap: 5px;
+    display: flex;
     flex-direction: column;
   }
-  .recipient__formNameSurname:not(:last-of-type),
-  .recipient__formAnotherInform:not(:last-of-type) {
-    margin-bottom: -4px;
+  .margin-bottom {
+    margin-bottom: 25px;
   }
-  .recipient__form_inputBox-input,
-  .recipient__formNameSurname {
-    width: 28rem;
+
+  .infom-wrapper {
+    margin-top: 8px;
+    margin-left: 9px;
   }
   .bar {
     line-height: 28px;
+  }
+  .recipient__form-another-inform {
+    padding-right: 0px;
+  }
+  .recipient__form_input-box-input,
+  .recipient__formNameSurname {
+    display: inline-block;
+    width: 100%;
   }
 }
