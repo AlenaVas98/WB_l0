@@ -334,10 +334,12 @@ function deliveryProducts(id, chooseAll) {
     tShirt.innerHTML = product.quantityCart;
     productDelivery1.classList.toggle("hide", !checkbox1Checked);
   } else if (id === "checkbox2") {
-    phone.innerHTML = product.quantityCart;
+       if (product.quantityCart <= 5) {
+      phone.innerHTML = product.quantityCart;
+    }
     phone2.innerHTML = Math.max(0, product.quantityCart - 5);
     const phoneDeliveryVisible = checkbox2Checked && product.quantityCart > 5;
-    productDelivery2.classList.toggle("hide", !checkbox2Checked);
+    productDelivery2.classList.toggle("hide", !checkbox2Checked || !phoneDeliveryVisible);
     productDelivery4.classList.toggle(
       "hide",
       !checkbox2Checked || !phoneDeliveryVisible
