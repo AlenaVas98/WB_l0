@@ -339,7 +339,7 @@ function deliveryProducts(id, chooseAll) {
     }
     phone2.innerHTML = Math.max(0, product.quantityCart - 5);
     const phoneDeliveryVisible = checkbox2Checked && product.quantityCart > 5;
-    productDelivery2.classList.toggle("hide", !checkbox2Checked || !phoneDeliveryVisible);
+    productDelivery2.classList.toggle("hide", !checkbox2Checked && !phoneDeliveryVisible);
     productDelivery4.classList.toggle(
       "hide",
       !checkbox2Checked || !phoneDeliveryVisible
