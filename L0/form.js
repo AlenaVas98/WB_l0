@@ -7,7 +7,7 @@ const inputs = [
     regex: /^(\S+)@([a-z0-9-]+)(\.)([a-z]{2,4})(\.?)([a-z]{0,4})+$/,
   },
   {
-    id: "phone",
+    id: "phone-form",
     errorClass: ".error-phone",
   },
   {
@@ -83,7 +83,7 @@ form.addEventListener("click", (e) => {
 
 // =================================================================== phone Input
 const phoneFormInputError = document.querySelector(".error-phone");
-const phoneFormInput = document.querySelector("#phone");
+const phoneFormInput = document.querySelector("#phone-form");
 
 var eventCalllback = function (e) {
   var el = e.target,
