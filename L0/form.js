@@ -18,28 +18,33 @@ const inputs = [
 const orderButton = document.querySelector(".result_box-button_button");
 const formRecipent = document.querySelector("#formRecipent");
 const form = document.querySelector("#form");
+
 function validateForm(input) {
   const inputElement = document.querySelector(`#${input.id}`);
   const errorElement = document.querySelector(input.errorClass);
   const value = inputElement.value.trim();
-  if (value.length === 0) {
+  if (value.length === 0 || inputElement.classList.contains("error-input")) {
     errorElement.classList.add("error");
     errorElement.classList.remove("hide");
     inputElement.classList.add("error-input");
-    orderButton.classList.remove("test");
+    return false;
   } else {
     errorElement.classList.remove("error");
     errorElement.classList.add("hide");
     inputElement.classList.remove("error-input");
-    orderButton.classList.add("test");
+    return true;
   }
 }
 
 orderButton.addEventListener("click", function (e) {
   e.preventDefault();
-  inputs.map((item) => validateForm(item, item.regex));
-
-  if (orderButton.classList.contains("test")) {
+  let hasError = false;
+  inputs.forEach((item) => {
+    if (!validateForm(item, item.regex)) {
+      hasError = true;
+    }
+  });
+  if (!hasError) {
     form.reset();
     alert("Успешно");
   } else {

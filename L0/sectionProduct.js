@@ -12,6 +12,18 @@ const pencilPrice = document.getElementById("price3");
 
 const deliveryTshirt = document.getElementById("delivery-tshirt");
 
+const tShirt = document.getElementById("t-shirt");
+const productDelivery1 = document.getElementById("product-delivery1");
+
+const phone = document.getElementById("phone");
+const productDelivery2 = document.getElementById("product-delivery2");
+
+const pencil = document.getElementById("pencil");
+const productDelivery3 = document.getElementById("product-delivery3");
+
+const phone2 = document.getElementById("phone-late");
+const productDelivery4 = document.getElementById("product-delivery4");
+
 const totalDiscounts = {
   tshirt: 1051,
   phone: 11500,
@@ -123,12 +135,16 @@ function counterProduct() {
   const btn = document.querySelectorAll(
     ".cart__main-box_product-box_icon_button-box_button"
   );
+
   btn.forEach((btn) => {
     let name = btn.name;
     let action = btn.id;
     btn.addEventListener("click", () => {
       const product = dataProduct.find((item) => item.id === name);
       if (!product) return;
+
+      const disabledMinus = document.getElementsByName(`${name}`)[0];
+      const disabledPlus = document.getElementsByName(`${name}`)[1];
 
       if (action === "minus") {
         product.countProduct--;
@@ -149,56 +165,50 @@ function counterProduct() {
         product.totalPrice = product.productPrice;
         product.totalDiscount += product.discount;
       }
-      if (product.countProduct == 0) {
-        document.getElementsByName(`${name}`)[0].disabled = true;
-      } else {
-        document.getElementsByName(`${name}`)[0].disabled = false;
-      }
 
+      disabledMinus.disabled = product.countProduct === 1;
+      disabledPlus.disabled = product.countProduct === product.quantity;
       if (product.countProduct === product.quantity) {
-        document.getElementsByName(`${name}`)[1].disabled = true;
-        product.quantityProduct.innerHTML = ``;
-      } else {
-        document.getElementsByName(`${name}`)[1].disabled = false;
+        product.quantityProduct.innerHTML = "";
       }
-      if (product.id === "p1") {
-        tshirtCount.value = product.countProduct;
-        tshirtPrice.value = product.productPrice;
-        totalDiscounts.tshirt = product.totalDiscount;
-      }
-      if (product.id === "p2") {
-        phoneCount.value = product.countProduct;
-        phonePrice.value = product.productPrice;
-        totalDiscounts.phone = product.totalDiscount;
-      }
-      if (product.id === "p3") {
-        pencilCount.value = product.countProduct;
-        pencilPrice.value = product.productPrice;
-        totalDiscounts.pencil = product.totalDiscount;
+      const checkboxChecked = document.getElementById(
+        product.idCheckbox
+      ).checked;
+      if (checkboxChecked) {
+        addToCartCheck();
+        deliveryProducts(product.idCheckbox);
       }
 
-      if (document.getElementById("checkbox1").checked) {
-        addToCartCheck();
+      switch (product.id) {
+        case "p1":
+          tshirtCount.value = product.countProduct;
+          tshirtPrice.value = product.productPrice;
+          totalDiscounts.tshirt = product.totalDiscount;
+          break;
+        case "p2":
+          phoneCount.value = product.countProduct;
+          phonePrice.value = product.productPrice;
+          totalDiscounts.phone = product.totalDiscount;
+          break;
+        case "p3":
+          pencilCount.value = product.countProduct;
+          pencilPrice.value = product.productPrice;
+          totalDiscounts.pencil = product.totalDiscount;
+          break;
+        default:
+          break;
       }
-      if (document.getElementById("checkbox2").checked) {
-        addToCartCheck();
-      }
-      if (document.getElementById("checkbox3").checked) {
-        addToCartCheck();
-      }
+
       updateHTMLData();
     });
   });
 }
 
 function updateHTMLData() {
-  if (totalQuantity == 0) {
-    cartQuantity.classList.add("hide");
-    quantityCardMobile.classList.add("hide");
-  } else {
-    cartQuantity.classList.remove("hide");
-    quantityCardMobile.classList.remove("hide");
-  }
+  const hideClass = "hide";
+  cartQuantity.classList.toggle(hideClass, totalQuantity === 0);
+  quantityCardMobile.classList.toggle(hideClass, totalQuantity === 0);
+
   cartQuantity.textContent = `${totalQuantity}`;
   quantityCardMobile.textContent = `${totalQuantity}`;
   totalQuantityHide.textContent = `${totalQuantity} ${itemChange(
@@ -224,33 +234,32 @@ function DeleteProduct() {
   const trash = document.querySelectorAll(".icon-trash");
   trash.forEach((btn) => {
     btn.addEventListener("click", () => {
-      if (btn.id == "p1") {
-        document.getElementById("product1").classList.add("hide");
-        dataProduct = dataProduct.filter((id) => {
-          return id.idCheckbox != "checkbox1";
-        });
-        updateCartTrash("checkbox1");
-      } else if (btn.id == "p2") {
-        document.getElementById("product2").classList.add("hide");
-        dataProduct = dataProduct.filter((id) => {
-          return id.idCheckbox != "checkbox2";
-        });
-        updateCartTrash("checkbox2");
-      } else if (btn.id == "p3") {
-        document.getElementById("product3").classList.add("hide");
-        dataProduct = dataProduct.filter((id) => {
-          return id.idCheckbox != "checkbox3";
-        });
-        updateCartTrash("checkbox3");
+      const productId = btn.id.replace("p", "");
+
+      const productElement = document.getElementById(`product${productId}`);
+      if (productElement) {
+        productElement.classList.add("hide");
       }
-      if (btn.id == "p4") {
-        document.getElementById("product4").classList.add("hide");
-        --outOfStokeCounter;
-      } else if (btn.id == "p5") {
-        document.getElementById("product5").classList.add("hide");
-        --outOfStokeCounter;
-      } else if (btn.id == "p6") {
-        document.getElementById("product6").classList.add("hide");
+      dataProduct = dataProduct.filter(
+        (id) => id.idCheckbox !== `checkbox${productId}`
+      );
+      if (document.getElementById(`checkbox${productId}`).id === "checkbox1") {
+        productDelivery1.classList.add("hide");
+      }
+      if (document.getElementById(`checkbox${productId}`).id === "checkbox2") {
+        productDelivery2.classList.add("hide");
+        productDelivery4.classList.add("hide");
+        document.getElementById("late-delivery").classList.add("hide");
+      }
+      if (document.getElementById(`checkbox${productId}`).id === "checkbox3") {
+        productDelivery3.classList.add("hide");
+      }
+      if (dataProduct.length === 0) {
+        document.getElementById("delivery-date").classList.add("hide");
+      }
+
+      updateCartTrash(`checkbox${productId}`);
+      if (btn.id === "p4" || btn.id === "p5" || btn.id === "p6") {
         --outOfStokeCounter;
       }
       outOfStokeQuantity.textContent = `Отсутствуют · ${outOfStokeCounter} товара`;
@@ -258,17 +267,21 @@ function DeleteProduct() {
     });
   });
 }
-// =========================================================================== checkbox price
 
 function addPrice() {
   if (checkboxPrice.checked) {
     buttonOrder.textContent = `Оплатить ${totalAmount} сом`;
+    document
+      .querySelector(".result__main_payment_box-confirm-p")
+      .classList.add("hide");
   } else {
     buttonOrder.textContent = `Заказать`;
+    document
+      .querySelector(".result__main_payment_box-confirm-p")
+      .classList.remove("hide");
   }
 }
 checkboxPrice.addEventListener("change", addPrice);
-
 // =========================================================================== cart
 const modalCart = function () {
   cart.classList.toggle("hide");
@@ -277,21 +290,22 @@ const modalCart = function () {
 };
 openBtn.addEventListener("click", modalCart);
 closeBtn.addEventListener("click", modalCart);
-
 // =========================================================================== choose all
-
 chooseAll.addEventListener("change", (e) => {
   const checked = e.target.checked;
+
   checkboxAll.forEach((el) => {
     el.checked = checked;
   });
   addToCartCheck(chooseAll.id);
-});
 
+  if (dataCart.length >= 1) {
+    document.getElementById("delivery-date").classList.remove("hide");
+  }
+});
 checkboxAll.forEach((check) => {
   check.addEventListener("change", (e) => {
     addToCartCheck(check.id);
-
     let checkboxAllChecked =
       document.querySelectorAll(".checkbox:checked").length;
     if (checkboxAllChecked < 3) {
@@ -299,51 +313,95 @@ checkboxAll.forEach((check) => {
     } else {
       chooseAll.checked = true;
     }
+
+    if (dataCart.length === 0) {
+      document.getElementById("delivery-date").classList.add("hide");
+    } else {
+      document.getElementById("delivery-date").classList.remove("hide");
+    }
   });
 });
 
-function addToCartCheck(index) {
-  dataProduct.map((product) => {
-    if (
-      (index === product.idCheckbox && !dataCart.includes(product)) ||
-      (index === "chooseAll" && !dataCart.includes(product))
-    ) {
-      dataCart.push(product);
-    }
-  });
+function deliveryProducts(id, chooseAll) {
+  const product = dataCart.find((item) => item.idCheckbox === id);
+  if (!product) return;
 
-  for (let i = 0; i < dataCart.length; i++) {
-    if (index === dataCart[i].idCheckbox) {
-      document.getElementById(index).classList.add("check");
-      updateCart(dataCart[i].idCheckbox);
-    }
-    if (index === "chooseAll") {
-      document.getElementById(index).classList.add("check");
-      document.getElementById("checkbox1").classList.add("check");
-      document.getElementById("checkbox2").classList.add("check");
-      document.getElementById("checkbox3").classList.add("check");
-      updateCart(dataCart[i].idCheckbox, index);
-    }
+  const checkbox1Checked = document.getElementById("checkbox1").checked;
+  const checkbox2Checked = document.getElementById("checkbox2").checked;
+  const checkbox3Checked = document.getElementById("checkbox3").checked;
+
+  if (id === "checkbox1") {
+    tShirt.innerHTML = product.quantityCart;
+    productDelivery1.classList.toggle("hide", !checkbox1Checked);
+  } else if (id === "checkbox2") {
+    phone.innerHTML = product.quantityCart;
+    phone2.innerHTML = Math.max(0, product.quantityCart - 5);
+    const phoneDeliveryVisible = checkbox2Checked && product.quantityCart > 5;
+    productDelivery2.classList.toggle("hide", !checkbox2Checked);
+    productDelivery4.classList.toggle(
+      "hide",
+      !checkbox2Checked || !phoneDeliveryVisible
+    );
+    document
+      .getElementById("late-delivery")
+      .classList.toggle("hide", !checkbox2Checked || !phoneDeliveryVisible);
+  } else if (id === "checkbox3") {
+    pencil.innerHTML = product.quantityCart;
+    productDelivery3.classList.toggle("hide", !checkbox3Checked);
   }
 
-  totalQuantity = dataCart.reduce((prev, product) => {
-    return prev + product.quantityCart;
-  }, 0);
+  if (chooseAll) {
+    const allChecked = document.getElementById(chooseAll).checked;
+    if (!allChecked) {
+      productDelivery1.classList.add("hide");
+      productDelivery2.classList.add("hide");
+      productDelivery3.classList.add("hide");
+      productDelivery4.classList.add("hide");
+      document.getElementById("late-delivery").classList.add("hide");
+      document.getElementById("delivery-date").classList.add("hide");
+    }
+  }
+}
 
-  totalAmount = dataCart.reduce((prev, product) => {
-    return prev + product.totalPrice;
-  }, 0);
-  totalAmountWithoutDiscountCard = dataCart.reduce((prev, product) => {
-    return prev + product.totalDiscount;
-  }, 0);
-  totalDiscount = dataCart.reduce((prev, product) => {
-    prev += product.totalDiscount - product.totalPrice;
-    return prev;
-  }, 0);
+function addToCartCheck(index) {
+  let checkboxesToUpdate = [];
+  dataProduct.forEach((product) => {
+    const isChecked = index === product.idCheckbox || index === "chooseAll";
+    if (isChecked && !dataCart.includes(product)) {
+      dataCart.push(product);
+    }
+    if (isChecked) {
+      checkboxesToUpdate.push(product.idCheckbox);
+    }
+  });
+  checkboxesToUpdate.forEach((checkbox) => {
+    document.getElementById(checkbox).classList.add("check");
+    updateCart(checkbox, index === "chooseAll" ? "chooseAll" : null);
+  });
+
+  totalQuantity = dataCart.reduce(
+    (prev, product) => prev + product.quantityCart,
+    0
+  );
+  totalAmount = dataCart.reduce(
+    (prev, product) => prev + product.totalPrice,
+    0
+  );
+  totalAmountWithoutDiscountCard = dataCart.reduce(
+    (prev, product) => prev + product.totalDiscount,
+    0
+  );
+  totalDiscount = dataCart.reduce(
+    (prev, product) => prev + (product.totalDiscount - product.totalPrice),
+    0
+  );
+
   updateHTMLData();
 }
 
 function updateCart(index, chooseAll) {
+  deliveryProducts(index, chooseAll);
+  console.log(index);
   if (
     document.getElementById(index).classList.contains("check") &&
     document.getElementById(index).checked == false
@@ -374,6 +432,7 @@ function updateCart(index, chooseAll) {
     totalQuantity = 0;
   }
 }
+
 function updateCartTrash(index) {
   if (
     document.getElementById(index).classList.contains("check") &&
@@ -400,5 +459,15 @@ function updateCartTrash(index) {
   updateHTMLData();
 }
 
-counterProduct();
-DeleteProduct();
+function initialize() {
+  if (chooseAll.checked) {
+    checkboxAll.forEach((check) => {
+      addToCartCheck(check.id);
+    });
+  }
+  counterProduct();
+  DeleteProduct();
+  updateHTMLData();
+}
+
+initialize();

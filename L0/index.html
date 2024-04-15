@@ -97,6 +97,7 @@
                 type="checkbox"
                 class="cart__main-box_input hide"
                 id="chooseAll"
+                checked
               />
               <span class="cart__main-box_checkbox"></span>
             </label>
@@ -130,6 +131,7 @@
                       type="checkbox"
                       class="cart__main-box_input hide checkbox"
                       id="checkbox1"
+                      checked
                     />
                     <span
                       class="cart__main-box_checkbox cart__main-box_checkbox-mobile"
@@ -192,6 +194,7 @@
                       class="cart__main-box_product-box_icon_button-box_button"
                       id="minus"
                       name="p1"
+                      disabled
                     >
                       –
                     </button>
@@ -313,6 +316,7 @@
                       type="checkbox"
                       class="cart__main-box_input hide checkbox"
                       id="checkbox2"
+                      checked
                     />
                     <span
                       class="cart__main-box_checkbox cart__main-box_checkbox-mobile"
@@ -370,6 +374,7 @@
                       class="cart__main-box_product-box_icon_button-box_button"
                       id="minus"
                       name="p2"
+                      disabled
                     >
                       –
                     </button>
@@ -488,6 +493,7 @@
                       type="checkbox"
                       class="cart__main-box_input hide checkbox"
                       id="checkbox3"
+                      checked
                     />
                     <span
                       class="cart__main-box_checkbox cart__main-box_checkbox-mobile"
@@ -543,6 +549,7 @@
                         class="cart__main-box_product-box_icon_button-box_button"
                         id="minus"
                         name="p3"
+                        disabled
                       >
                         –
                       </button>
@@ -954,41 +961,65 @@
               <p class="delivery__free-text">Бесплатно</p>
             </div>
             <div class="delivery__box-inform_date">
-              <h3 class="delivery__text date">5—6 февраля</h3>
+              <h3 class="delivery__text date" id="delivery-date">
+                5—6 февраля
+              </h3>
               <div class="delivery__box-inform_date_box-img">
-                <img
-                  src="./imgs/t-shirt-color.svg"
-                  alt="t-shirt white"
-                  class="img-delivery"
-                />
+                <div class="delivery_img" id="product-delivery1">
+                  <img
+                    src="./imgs/t-shirt-color.svg"
+                    alt="t-shirt white"
+                    class="img-delivery"
+                  />
+                  <div
+                    class="delivery__box-inform_date-label item-label"
+                    id="t-shirt"
+                  >
+                    1
+                  </div>
+                </div>
 
-                <div class="delivery_img">
+                <div class="delivery_img" id="product-delivery2">
                   <img
                     src="./imgs/phone.svg "
                     alt="phone"
                     class="img-delivery"
                   />
-                  <div class="delivery__box-inform_date-label item-label">
-                    184
+                  <div
+                    class="delivery__box-inform_date-label item-label"
+                    id="phone"
+                  >
+                    1
                   </div>
                 </div>
-                <div class="delivery_img">
+                <div class="delivery_img" id="product-delivery3">
                   <img
                     src="./imgs/pencil.svg "
                     alt="phone"
                     class="img-delivery"
                   />
-                  <div class="delivery__box-inform_date-label item-label">
-                    2
+                  <div
+                    class="delivery__box-inform_date-label item-label"
+                    id="pencil"
+                  >
+                    1
                   </div>
                 </div>
               </div>
             </div>
             <div class="delivery__box-inform_date">
-              <h3 class="delivery__text margin-top-text">7—8 февраля</h3>
-              <div class="delivery_img margin-top-img">
+              <h3
+                class="delivery__text margin-top-text hide"
+                id="late-delivery"
+              >
+                7—8 февраля
+              </h3>
+              <div class="delivery_img margin-top-img" id="product-delivery4">
                 <img src="./imgs/phone.svg " alt="phone" class="img-delivery" />
-                <div class="delivery__box-inform_date-label item-label">16</div>
+                <div
+                  class="delivery__box-inform_date-label item-label"
+                  id="phone-late"
+                ></div>
               </div>
             </div>
             <div class="delivery__box-inform_info infom-wrapper">
